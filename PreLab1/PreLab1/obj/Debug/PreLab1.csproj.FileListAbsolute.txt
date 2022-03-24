@@ -1,0 +1,10 @@
+C:\Users\Şevval Kolaca\Desktop\OOP_2 LAB\PreLab1\PreLab1\bin\Debug\PreLab1.exe.config
+C:\Users\Şevval Kolaca\Desktop\OOP_2 LAB\PreLab1\PreLab1\bin\Debug\PreLab1.exe
+C:\Users\Şevval Kolaca\Desktop\OOP_2 LAB\PreLab1\PreLab1\bin\Debug\PreLab1.pdb
+C:\Users\Şevval Kolaca\Desktop\OOP_2 LAB\PreLab1\PreLab1\obj\Debug\PreLab1.csproj.AssemblyReference.cache
+C:\Users\Şevval Kolaca\Desktop\OOP_2 LAB\PreLab1\PreLab1\obj\Debug\PreLab1.LoginScreen.resources
+C:\Users\Şevval Kolaca\Desktop\OOP_2 LAB\PreLab1\PreLab1\obj\Debug\PreLab1.Properties.Resources.resources
+C:\Users\Şevval Kolaca\Desktop\OOP_2 LAB\PreLab1\PreLab1\obj\Debug\PreLab1.csproj.GenerateResource.cache
+C:\Users\Şevval Kolaca\Desktop\OOP_2 LAB\PreLab1\PreLab1\obj\Debug\PreLab1.csproj.CoreCompileInputs.cache
+C:\Users\Şevval Kolaca\Desktop\OOP_2 LAB\PreLab1\PreLab1\obj\Debug\PreLab1.exe
+C:\Users\Şevval Kolaca\Desktop\OOP_2 LAB\PreLab1\PreLab1\obj\Debug\PreLab1.pdb
