@@ -42,8 +42,11 @@ namespace PreLab1
 
         }
 
-        private void txtUserName_CursorChanged(object sender, EventArgs e)
+        private void BtnLogin_Click(object sender, EventArgs e)
         {
+            MenuScreen menuScreen = new MenuScreen();
+            menuScreen.ShowDialog();
+            this.Close();
 
         }
     }
