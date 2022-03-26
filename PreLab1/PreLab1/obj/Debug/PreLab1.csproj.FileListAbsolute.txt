@@ -20,3 +20,16 @@ C:\Users\Şevval Kolaca\Desktop\OOP_2 LAB\OOP_2_Lab\PreLab1\PreLab1\obj\Debug\Pr
 C:\Users\Şevval Kolaca\Desktop\OOP_2 LAB\OOP_2_Lab\PreLab1\PreLab1\obj\Debug\PreLab1.exe
 C:\Users\Şevval Kolaca\Desktop\OOP_2 LAB\OOP_2_Lab\PreLab1\PreLab1\obj\Debug\PreLab1.pdb
 C:\Users\Şevval Kolaca\Desktop\OOP_2 LAB\OOP_2_Lab\PreLab1\PreLab1\obj\Debug\PreLab1.MenuScreen.resources
+C:\Users\Hp\Desktop\OOP_2_Lab\OOP_2_Lab\PreLab1\PreLab1\bin\Debug\PreLab1.exe.config
+C:\Users\Hp\Desktop\OOP_2_Lab\OOP_2_Lab\PreLab1\PreLab1\bin\Debug\PreLab1.exe
+C:\Users\Hp\Desktop\OOP_2_Lab\OOP_2_Lab\PreLab1\PreLab1\bin\Debug\PreLab1.pdb
+C:\Users\Hp\Desktop\OOP_2_Lab\OOP_2_Lab\PreLab1\PreLab1\obj\Debug\PreLab1.csproj.AssemblyReference.cache
+C:\Users\Hp\Desktop\OOP_2_Lab\OOP_2_Lab\PreLab1\PreLab1\obj\Debug\PreLab1.LoginScreen.resources
+C:\Users\Hp\Desktop\OOP_2_Lab\OOP_2_Lab\PreLab1\PreLab1\obj\Debug\PreLab1.SettingScreen.resources
+C:\Users\Hp\Desktop\OOP_2_Lab\OOP_2_Lab\PreLab1\PreLab1\obj\Debug\PreLab1.MenuScreen.resources
+C:\Users\Hp\Desktop\OOP_2_Lab\OOP_2_Lab\PreLab1\PreLab1\obj\Debug\PreLab1.Properties.Resources.resources
+C:\Users\Hp\Desktop\OOP_2_Lab\OOP_2_Lab\PreLab1\PreLab1\obj\Debug\PreLab1.csproj.GenerateResource.cache
+C:\Users\Hp\Desktop\OOP_2_Lab\OOP_2_Lab\PreLab1\PreLab1\obj\Debug\PreLab1.csproj.CoreCompileInputs.cache
+C:\Users\Hp\Desktop\OOP_2_Lab\OOP_2_Lab\PreLab1\PreLab1\obj\Debug\PreLab1.exe
+C:\Users\Hp\Desktop\OOP_2_Lab\OOP_2_Lab\PreLab1\PreLab1\obj\Debug\PreLab1.pdb
+C:\Users\Hp\Desktop\OOP_2_Lab\OOP_2_Lab\PreLab1\PreLab1\obj\Debug\PreLab1.GameScreen.resources

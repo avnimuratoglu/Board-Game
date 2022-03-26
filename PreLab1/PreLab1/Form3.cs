@@ -41,6 +41,17 @@ namespace PreLab1
 
         }
 
+        private void Btn_Play_Click(object sender, EventArgs e)
+        {
+
+            GameScreen gameScreen = new GameScreen();
+            this.Hide();
+            gameScreen.ShowDialog();
+   
+            
+          
+        }
+
         //private void MenuScreen_FormClosing(object sender, FormClosingEventArgs e)
         //{
         //    if(MessageBox.Show("Application will be closed!","Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)

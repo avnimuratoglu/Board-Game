@@ -39,9 +39,10 @@ namespace PreLab1
             // Btn_Logout
             // 
             this.Btn_Logout.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.Btn_Logout.Location = new System.Drawing.Point(219, 332);
+            this.Btn_Logout.Location = new System.Drawing.Point(164, 270);
+            this.Btn_Logout.Margin = new System.Windows.Forms.Padding(2);
             this.Btn_Logout.Name = "Btn_Logout";
-            this.Btn_Logout.Size = new System.Drawing.Size(190, 51);
+            this.Btn_Logout.Size = new System.Drawing.Size(142, 41);
             this.Btn_Logout.TabIndex = 3;
             this.Btn_Logout.Text = "LOG OUT";
             this.Btn_Logout.UseVisualStyleBackColor = true;
@@ -52,9 +53,10 @@ namespace PreLab1
             this.Btn_Exit.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.Btn_Exit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
             this.Btn_Exit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.Btn_Exit.Location = new System.Drawing.Point(219, 417);
+            this.Btn_Exit.Location = new System.Drawing.Point(164, 339);
+            this.Btn_Exit.Margin = new System.Windows.Forms.Padding(2);
             this.Btn_Exit.Name = "Btn_Exit";
-            this.Btn_Exit.Size = new System.Drawing.Size(190, 51);
+            this.Btn_Exit.Size = new System.Drawing.Size(142, 41);
             this.Btn_Exit.TabIndex = 4;
             this.Btn_Exit.Text = "EXIT";
             this.Btn_Exit.UseVisualStyleBackColor = true;
@@ -63,9 +65,10 @@ namespace PreLab1
             // btnSettings
             // 
             this.btnSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnSettings.Location = new System.Drawing.Point(219, 251);
+            this.btnSettings.Location = new System.Drawing.Point(164, 204);
+            this.btnSettings.Margin = new System.Windows.Forms.Padding(2);
             this.btnSettings.Name = "btnSettings";
-            this.btnSettings.Size = new System.Drawing.Size(190, 51);
+            this.btnSettings.Size = new System.Drawing.Size(142, 41);
             this.btnSettings.TabIndex = 2;
             this.btnSettings.Text = "SETTINGS";
             this.btnSettings.UseVisualStyleBackColor = true;
@@ -73,35 +76,38 @@ namespace PreLab1
             // 
             // Btn_Play
             // 
-            this.Btn_Play.Enabled = false;
             this.Btn_Play.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.Btn_Play.Location = new System.Drawing.Point(219, 168);
+            this.Btn_Play.Location = new System.Drawing.Point(164, 136);
+            this.Btn_Play.Margin = new System.Windows.Forms.Padding(2);
             this.Btn_Play.Name = "Btn_Play";
-            this.Btn_Play.Size = new System.Drawing.Size(190, 51);
+            this.Btn_Play.Size = new System.Drawing.Size(142, 41);
             this.Btn_Play.TabIndex = 1;
             this.Btn_Play.Text = "PLAY";
             this.Btn_Play.UseVisualStyleBackColor = true;
+            this.Btn_Play.Click += new System.EventHandler(this.Btn_Play_Click);
             // 
             // lbl_Menu
             // 
             this.lbl_Menu.AutoSize = true;
             this.lbl_Menu.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lbl_Menu.Location = new System.Drawing.Point(194, 50);
+            this.lbl_Menu.Location = new System.Drawing.Point(146, 41);
+            this.lbl_Menu.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_Menu.Name = "lbl_Menu";
-            this.lbl_Menu.Size = new System.Drawing.Size(229, 38);
+            this.lbl_Menu.Size = new System.Drawing.Size(189, 31);
             this.lbl_Menu.TabIndex = 6;
             this.lbl_Menu.Text = "GAME MENU";
             // 
             // MenuScreen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(637, 529);
+            this.ClientSize = new System.Drawing.Size(482, 430);
             this.Controls.Add(this.lbl_Menu);
             this.Controls.Add(this.Btn_Play);
             this.Controls.Add(this.btnSettings);
             this.Controls.Add(this.Btn_Exit);
             this.Controls.Add(this.Btn_Logout);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MenuScreen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu Screen";
