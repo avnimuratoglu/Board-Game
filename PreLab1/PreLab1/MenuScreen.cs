@@ -17,47 +17,39 @@ namespace PreLab1
             InitializeComponent();
         }
 
+        LoginScreen loginScreen = new LoginScreen();
+
         private void Btn_Logout_Click(object sender, EventArgs e)
         {
-            LoginScreen loginScreen = new LoginScreen();
             this.Hide();
-            loginScreen.ShowDialog();
-            this.Close();
-
-
+            loginScreen.Show();
         }
 
         private void Btn_Exit_Click(object sender, EventArgs e)
         {
+            loginScreen.Close();
             Application.Exit();
-
         }
 
         private void btnSettings_Click(object sender, EventArgs e)
         {
             SettingScreen settingScreen = new SettingScreen();
-            settingScreen.ShowDialog();
-            this.Close(); // giris ekranini saklamak icin
-
+            settingScreen.Show();
         }
 
         private void Btn_Play_Click(object sender, EventArgs e)
         {
-
             GameScreen gameScreen = new GameScreen();
             this.Hide();
             gameScreen.ShowDialog();
-   
-            
-          
         }
 
-        //private void MenuScreen_FormClosing(object sender, FormClosingEventArgs e)
-        //{
-        //    if(MessageBox.Show("Application will be closed!","Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
-        //    {
-        //        e.Cancel = true;
-        //    }
-        //}
+        private void MenuScreen_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            loginScreen.Close();
+            Application.Exit();
+        }
+
+
     }
 }
