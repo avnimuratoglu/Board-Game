@@ -19,13 +19,10 @@ namespace PreLab1
 
         private void txtUserName_TextChanged(object sender, EventArgs e)
         {
-            
-
             if (txtUserName.TextLength == 0)
                 BtnLogin.Enabled = false;
             else
                 BtnLogin.Enabled = true;
-
         }
 
         private void BtnLogin_Click(object sender, EventArgs e)
@@ -35,29 +32,32 @@ namespace PreLab1
 
             if (txtUserName.Text == nameUser && txtPassword.Text == passUser )
             {
+                this.Hide();
                 MenuScreen menuScreen = new MenuScreen();
                 menuScreen.ShowDialog();
-                this.Close();
             }
             if (txtUserName.Text == nameAdmin && txtPassword.Text == passAdmin)
             {
+                this.Hide();
                 MenuScreen menuScreen = new MenuScreen();
                 menuScreen.ShowDialog();
-                this.Close();
             }
             else
             {
                 lbl_error.Text = "Warning!";
                 lbl_error2.Text = "You entered wrong name or password!";
             }
-
-
         }
 
         private void txtPassword_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Enter)
                 BtnLogin_Click(sender, e);
+        }
+
+        private void LoginScreen_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

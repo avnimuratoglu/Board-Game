@@ -12,9 +12,18 @@ namespace PreLab1
 {
     public partial class GameScreen : Form
     {
+        LoginScreen loginScreen = new LoginScreen();
+        MenuScreen menuScreen = new MenuScreen();
         public GameScreen()
         {
             InitializeComponent();
+        }
+
+        private void GameScreen_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            menuScreen.Close();
+            loginScreen.Close();
+            Application.Exit();
         }
     }
 }
