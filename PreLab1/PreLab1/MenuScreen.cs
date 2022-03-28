@@ -34,7 +34,7 @@ namespace PreLab1
         private void btnSettings_Click(object sender, EventArgs e)
         {
             SettingScreen settingScreen = new SettingScreen();
-            settingScreen.Show();
+            settingScreen.ShowDialog();
         }
 
         private void Btn_Play_Click(object sender, EventArgs e)

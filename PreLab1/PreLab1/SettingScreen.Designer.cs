@@ -46,8 +46,13 @@ namespace PreLab1
             this.lblNum2 = new System.Windows.Forms.Label();
             this.lbl_CustomErrorNum1 = new System.Windows.Forms.Label();
             this.lbl_CustomErrorNum2 = new System.Windows.Forms.Label();
+            this.checkBoxY = new System.Windows.Forms.CheckBox();
+            this.checkBoxB = new System.Windows.Forms.CheckBox();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.gBx_Difficulty.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -131,11 +136,11 @@ namespace PreLab1
             this.groupBox1.Controls.Add(this.cBx_Square);
             this.groupBox1.Controls.Add(this.cBx_Triangle);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.groupBox1.Location = new System.Drawing.Point(11, 293);
+            this.groupBox1.Location = new System.Drawing.Point(11, 238);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(613, 89);
+            this.groupBox1.Size = new System.Drawing.Size(613, 81);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Shape";
@@ -244,11 +249,59 @@ namespace PreLab1
             this.lbl_CustomErrorNum2.Size = new System.Drawing.Size(0, 17);
             this.lbl_CustomErrorNum2.TabIndex = 15;
             // 
+            // checkBoxY
+            // 
+            this.checkBoxY.AutoSize = true;
+            this.checkBoxY.BackColor = System.Drawing.SystemColors.Info;
+            this.checkBoxY.Location = new System.Drawing.Point(74, 35);
+            this.checkBoxY.Name = "checkBoxY";
+            this.checkBoxY.Size = new System.Drawing.Size(70, 21);
+            this.checkBoxY.TabIndex = 10;
+            this.checkBoxY.Text = "Yellow";
+            this.checkBoxY.UseVisualStyleBackColor = false;
+            this.checkBoxY.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // checkBoxB
+            // 
+            this.checkBoxB.AutoSize = true;
+            this.checkBoxB.BackColor = System.Drawing.SystemColors.Highlight;
+            this.checkBoxB.Location = new System.Drawing.Point(200, 35);
+            this.checkBoxB.Name = "checkBoxB";
+            this.checkBoxB.Size = new System.Drawing.Size(58, 21);
+            this.checkBoxB.TabIndex = 16;
+            this.checkBoxB.Text = "Blue";
+            this.checkBoxB.UseVisualStyleBackColor = false;
+            // 
+            // checkBox3
+            // 
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.BackColor = System.Drawing.Color.Red;
+            this.checkBox3.Location = new System.Drawing.Point(331, 35);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(56, 21);
+            this.checkBox3.TabIndex = 17;
+            this.checkBox3.Text = "Red";
+            this.checkBox3.UseVisualStyleBackColor = false;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.checkBoxY);
+            this.groupBox2.Controls.Add(this.checkBox3);
+            this.groupBox2.Controls.Add(this.checkBoxB);
+            this.groupBox2.Location = new System.Drawing.Point(12, 324);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(612, 78);
+            this.groupBox2.TabIndex = 18;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Color";
+            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
+            // 
             // SettingScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(637, 529);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.lbl_CustomErrorNum2);
             this.Controls.Add(this.lbl_CustomErrorNum1);
             this.Controls.Add(this.lblNum2);
@@ -268,6 +321,8 @@ namespace PreLab1
             this.gBx_Difficulty.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -292,5 +347,9 @@ namespace PreLab1
         private System.Windows.Forms.Label lblNum2;
         private System.Windows.Forms.Label lbl_CustomErrorNum1;
         private System.Windows.Forms.Label lbl_CustomErrorNum2;
+        private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.CheckBox checkBoxB;
+        private System.Windows.Forms.CheckBox checkBoxY;
+        private System.Windows.Forms.GroupBox groupBox2;
     }
 }

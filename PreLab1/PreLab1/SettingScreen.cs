@@ -220,5 +220,20 @@ namespace PreLab1
                 txtNum2.Text = Convert.ToString(SettingsAdmin.Default.Admin_diffCustomNum2);
             }
         }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }
