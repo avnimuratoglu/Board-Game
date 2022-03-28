@@ -19,28 +19,34 @@ namespace PreLab1
 
         private void txtUserName_TextChanged(object sender, EventArgs e)
         {
+
             if (txtUserName.TextLength == 0)
                 BtnLogin.Enabled = false;
             else
                 BtnLogin.Enabled = true;
         }
 
+        public string nameAdmin = "admin", nameUser = "user";
+        public string passAdmin = "admin", passUser = "user";
+        public static bool flag = false; //user or admin
         private void BtnLogin_Click(object sender, EventArgs e)
         {
-            string nameAdmin =  "admin", nameUser ="user";
-            string passAdmin = "admin", passUser = "user";
 
             if (txtUserName.Text == nameUser && txtPassword.Text == passUser )
             {
                 this.Hide();
+                flag = false; //user
                 MenuScreen menuScreen = new MenuScreen();
                 menuScreen.ShowDialog();
+                
             }
             if (txtUserName.Text == nameAdmin && txtPassword.Text == passAdmin)
             {
                 this.Hide();
+                flag = true;//admin
                 MenuScreen menuScreen = new MenuScreen();
                 menuScreen.ShowDialog();
+                
             }
             else
             {
