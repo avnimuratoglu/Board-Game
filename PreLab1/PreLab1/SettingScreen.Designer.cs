@@ -263,6 +263,7 @@ namespace PreLab1
             this.Name = "SettingScreen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Setting Screen";
+            this.Load += new System.EventHandler(this.SettingScreen_Load);
             this.gBx_Difficulty.ResumeLayout(false);
             this.gBx_Difficulty.PerformLayout();
             this.groupBox1.ResumeLayout(false);
