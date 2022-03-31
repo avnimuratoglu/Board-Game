@@ -36,6 +36,7 @@ namespace PreLab1
             this.lblPassword = new System.Windows.Forms.Label();
             this.lbl_error = new System.Windows.Forms.Label();
             this.lbl_error2 = new System.Windows.Forms.Label();
+            this.btnSıgnIn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // BtnLogin
@@ -59,6 +60,7 @@ namespace PreLab1
             this.txtUserName.Size = new System.Drawing.Size(157, 22);
             this.txtUserName.TabIndex = 1;
             this.txtUserName.TextChanged += new System.EventHandler(this.txtUserName_TextChanged);
+            this.txtUserName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUserName_KeyPress);
             // 
             // txtPassword
             // 
@@ -91,7 +93,7 @@ namespace PreLab1
             // lbl_error
             // 
             this.lbl_error.AutoSize = true;
-            this.lbl_error.Location = new System.Drawing.Point(247, 299);
+            this.lbl_error.Location = new System.Drawing.Point(234, 366);
             this.lbl_error.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_error.Name = "lbl_error";
             this.lbl_error.Size = new System.Drawing.Size(0, 17);
@@ -100,17 +102,29 @@ namespace PreLab1
             // lbl_error2
             // 
             this.lbl_error2.AutoSize = true;
-            this.lbl_error2.Location = new System.Drawing.Point(151, 318);
+            this.lbl_error2.Location = new System.Drawing.Point(149, 385);
             this.lbl_error2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_error2.Name = "lbl_error2";
             this.lbl_error2.Size = new System.Drawing.Size(0, 17);
             this.lbl_error2.TabIndex = 6;
+            // 
+            // btnSıgnIn
+            // 
+            this.btnSıgnIn.Enabled = false;
+            this.btnSıgnIn.Location = new System.Drawing.Point(199, 300);
+            this.btnSıgnIn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnSıgnIn.Name = "btnSıgnIn";
+            this.btnSıgnIn.Size = new System.Drawing.Size(157, 39);
+            this.btnSıgnIn.TabIndex = 7;
+            this.btnSıgnIn.Text = "Sıgn In";
+            this.btnSıgnIn.UseVisualStyleBackColor = true;
             // 
             // LoginScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(565, 450);
+            this.Controls.Add(this.btnSıgnIn);
             this.Controls.Add(this.lbl_error2);
             this.Controls.Add(this.lbl_error);
             this.Controls.Add(this.lblPassword);
@@ -137,6 +151,7 @@ namespace PreLab1
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.Label lbl_error;
         private System.Windows.Forms.Label lbl_error2;
+        private System.Windows.Forms.Button btnSıgnIn;
     }
 }
 

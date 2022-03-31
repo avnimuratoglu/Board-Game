@@ -23,9 +23,9 @@ namespace PreLab1
 
         private void Btn_Save_Click(object sender, EventArgs e)
         {
-            if(LoginScreen.flag == false )
+            if(LoginScreen.flag == false ) //USER
             {
-
+                //SHAPE
                 if (cBx_Square.Checked)
                     SettingsUser.Default.User_CheckSquare = cBx_Square.Checked;
                 else
@@ -40,7 +40,7 @@ namespace PreLab1
                     SettingsUser.Default.User_CheckRound = cBx_Round.Checked;
 
 
-
+                //DIFFICULTY
                 if (rBtn_Easy.Checked)
                     SettingsUser.Default.User_rBtnEasy = rBtn_Easy.Checked;
                 else
@@ -54,7 +54,7 @@ namespace PreLab1
                 else
                     SettingsUser.Default.User_rBtnHard = rBtn_Hard.Checked;
 
-
+                //DIFFICULTY CUSTOM
                 if (rBtn_Custom.Checked)
                 {
                     SettingsUser.Default.User_rBtnCustom = rBtn_Custom.Checked;
@@ -64,11 +64,25 @@ namespace PreLab1
                 else
                     SettingsUser.Default.User_rBtnCustom = rBtn_Custom.Checked;
 
+                //COLOR
+                if (cBx_Yellow.Checked)
+                    SettingsUser.Default.User_colorYellow = cBx_Yellow.Checked;
+                else
+                    SettingsUser.Default.User_colorYellow = cBx_Yellow.Checked;
+                if (cBx_Blue.Checked)
+                    SettingsUser.Default.User_colorBlue = cBx_Blue.Checked;
+                else
+                    SettingsUser.Default.User_colorBlue = cBx_Blue.Checked;
+                if (cBx_Red.Checked)
+                    SettingsUser.Default.User_colorRed = cBx_Red.Checked;
+                else
+                    SettingsUser.Default.User_colorRed = cBx_Red.Checked;
+
                 SettingsUser.Default.Save();
             }
-            else
+            else //ADMIN
             {
-
+                //SHAPE
                 if (cBx_Square.Checked)
                     SettingsAdmin.Default.Admin_CheckSquare = cBx_Square.Checked;
                 else
@@ -83,7 +97,7 @@ namespace PreLab1
                     SettingsAdmin.Default.Admin_CheckRound = cBx_Round.Checked;
 
 
-
+                //DIFFICULTY
                 if (rBtn_Easy.Checked)
                     SettingsAdmin.Default.Admin_rBtnEasy = rBtn_Easy.Checked;
                 else
@@ -97,7 +111,7 @@ namespace PreLab1
                 else
                     SettingsAdmin.Default.Admin_rBtnHard = rBtn_Hard.Checked;
 
-
+                //DIFFICULTY CUSTOM
                 if (rBtn_Custom.Checked)
                 {
                     SettingsAdmin.Default.Admin_rBtnCustom = rBtn_Custom.Checked;
@@ -106,6 +120,21 @@ namespace PreLab1
                 }
                 else
                     SettingsAdmin.Default.Admin_rBtnCustom = rBtn_Custom.Checked;
+
+
+                //COLOR
+                if (cBx_Yellow.Checked)
+                    SettingsAdmin.Default.Admin_colorYellow = cBx_Yellow.Checked;
+                else
+                    SettingsAdmin.Default.Admin_colorYellow = cBx_Yellow.Checked;
+                if (cBx_Blue.Checked)
+                    SettingsAdmin.Default.Admin_colorBlue = cBx_Blue.Checked;
+                else
+                    SettingsAdmin.Default.Admin_colorBlue = cBx_Blue.Checked;
+                if (cBx_Red.Checked)
+                    SettingsAdmin.Default.Admin_colorRed = cBx_Red.Checked;
+                else
+                    SettingsAdmin.Default.Admin_colorRed = cBx_Red.Checked;
 
                 SettingsAdmin.Default.Save();
             }
@@ -154,8 +183,6 @@ namespace PreLab1
                     lbl_CustomErrorNum1.Text = "You entered an invalid value for Number 1!";
                 }
             }
-           
-            
         }
 
         private void txtNum2_TextChanged(object sender, EventArgs e)
@@ -202,6 +229,11 @@ namespace PreLab1
                 //Custom Button
                 txtNum1.Text = Convert.ToString(SettingsUser.Default.User_diffCustomNum1);
                 txtNum2.Text = Convert.ToString(SettingsUser.Default.User_diffCustomNum2);
+
+                //Color Boxes
+                cBx_Yellow.Checked = SettingsUser.Default.User_colorYellow;
+                cBx_Blue.Checked = SettingsUser.Default.User_colorBlue;
+                cBx_Red.Checked = SettingsUser.Default.User_colorRed;
             }
             else
             {  //Check Boxes
@@ -218,22 +250,14 @@ namespace PreLab1
                 //Custom Button
                 txtNum1.Text = Convert.ToString(SettingsAdmin.Default.Admin_diffCustomNum1);
                 txtNum2.Text = Convert.ToString(SettingsAdmin.Default.Admin_diffCustomNum2);
+
+                //Color Boxes
+                cBx_Yellow.Checked = SettingsAdmin.Default.Admin_colorYellow;
+                cBx_Blue.Checked = SettingsAdmin.Default.Admin_colorBlue;
+                cBx_Red.Checked = SettingsAdmin.Default.Admin_colorRed;
             }
         }
 
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox2_Enter(object sender, EventArgs e)
-        {
-
-        }
+   
     }
 }

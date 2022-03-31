@@ -25,7 +25,7 @@ namespace PreLab1 {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool User_CheckSquare {
             get {
                 return ((bool)(this["User_CheckSquare"]));
@@ -128,6 +128,42 @@ namespace PreLab1 {
             }
             set {
                 this["User_diffCustomNum2"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool User_colorYellow {
+            get {
+                return ((bool)(this["User_colorYellow"]));
+            }
+            set {
+                this["User_colorYellow"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool User_colorBlue {
+            get {
+                return ((bool)(this["User_colorBlue"]));
+            }
+            set {
+                this["User_colorBlue"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool User_colorRed {
+            get {
+                return ((bool)(this["User_colorRed"]));
+            }
+            set {
+                this["User_colorRed"] = value;
             }
         }
     }

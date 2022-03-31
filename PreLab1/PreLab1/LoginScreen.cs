@@ -55,6 +55,13 @@ namespace PreLab1
             }
         }
 
+
+        private void txtUserName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+                BtnLogin_Click(sender, e);
+        }
+
         private void txtPassword_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Enter)
