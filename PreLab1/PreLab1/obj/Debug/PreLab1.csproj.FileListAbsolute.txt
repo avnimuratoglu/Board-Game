@@ -59,3 +59,16 @@ C:\Users\Hp\Documents\GitHub\OOP_2_Lab\PreLab1\PreLab1\obj\Debug\PreLab1.csproj.
 C:\Users\Hp\Documents\GitHub\OOP_2_Lab\PreLab1\PreLab1\obj\Debug\PreLab1.csproj.CoreCompileInputs.cache
 C:\Users\Hp\Documents\GitHub\OOP_2_Lab\PreLab1\PreLab1\obj\Debug\PreLab1.exe
 C:\Users\Hp\Documents\GitHub\OOP_2_Lab\PreLab1\PreLab1\obj\Debug\PreLab1.pdb
+C:\Users\Şevval Kolaca\Desktop\OOP2\PreLab1\PreLab1\bin\Debug\PreLab1.exe.config
+C:\Users\Şevval Kolaca\Desktop\OOP2\PreLab1\PreLab1\bin\Debug\PreLab1.exe
+C:\Users\Şevval Kolaca\Desktop\OOP2\PreLab1\PreLab1\bin\Debug\PreLab1.pdb
+C:\Users\Şevval Kolaca\Desktop\OOP2\PreLab1\PreLab1\obj\Debug\PreLab1.csproj.AssemblyReference.cache
+C:\Users\Şevval Kolaca\Desktop\OOP2\PreLab1\PreLab1\obj\Debug\PreLab1.LoginScreen.resources
+C:\Users\Şevval Kolaca\Desktop\OOP2\PreLab1\PreLab1\obj\Debug\PreLab1.SettingScreen.resources
+C:\Users\Şevval Kolaca\Desktop\OOP2\PreLab1\PreLab1\obj\Debug\PreLab1.MenuScreen.resources
+C:\Users\Şevval Kolaca\Desktop\OOP2\PreLab1\PreLab1\obj\Debug\PreLab1.GameScreen.resources
+C:\Users\Şevval Kolaca\Desktop\OOP2\PreLab1\PreLab1\obj\Debug\PreLab1.Properties.Resources.resources
+C:\Users\Şevval Kolaca\Desktop\OOP2\PreLab1\PreLab1\obj\Debug\PreLab1.csproj.GenerateResource.cache
+C:\Users\Şevval Kolaca\Desktop\OOP2\PreLab1\PreLab1\obj\Debug\PreLab1.csproj.CoreCompileInputs.cache
+C:\Users\Şevval Kolaca\Desktop\OOP2\PreLab1\PreLab1\obj\Debug\PreLab1.exe
+C:\Users\Şevval Kolaca\Desktop\OOP2\PreLab1\PreLab1\obj\Debug\PreLab1.pdb

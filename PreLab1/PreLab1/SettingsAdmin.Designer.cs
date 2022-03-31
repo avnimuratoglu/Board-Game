@@ -25,7 +25,7 @@ namespace PreLab1 {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool Admin_CheckSquare {
             get {
                 return ((bool)(this["Admin_CheckSquare"]));
@@ -37,7 +37,7 @@ namespace PreLab1 {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool Admin_CheckTriangle {
             get {
                 return ((bool)(this["Admin_CheckTriangle"]));
@@ -73,7 +73,7 @@ namespace PreLab1 {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool Admin_rBtnNormal {
             get {
                 return ((bool)(this["Admin_rBtnNormal"]));
@@ -128,6 +128,42 @@ namespace PreLab1 {
             }
             set {
                 this["Admin_diffCustomNum2"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool Admin_colorYellow {
+            get {
+                return ((bool)(this["Admin_colorYellow"]));
+            }
+            set {
+                this["Admin_colorYellow"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Admin_colorBlue {
+            get {
+                return ((bool)(this["Admin_colorBlue"]));
+            }
+            set {
+                this["Admin_colorBlue"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Admin_colorRed {
+            get {
+                return ((bool)(this["Admin_colorRed"]));
+            }
+            set {
+                this["Admin_colorRed"] = value;
             }
         }
     }

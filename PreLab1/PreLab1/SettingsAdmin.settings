@@ -3,10 +3,10 @@
   <Profiles />
   <Settings>
     <Setting Name="Admin_CheckSquare" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
+      <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="Admin_CheckTriangle" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
+      <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="Admin_CheckRound" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
@@ -15,7 +15,7 @@
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="Admin_rBtnNormal" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
+      <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="Admin_rBtnHard" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
@@ -28,6 +28,15 @@
     </Setting>
     <Setting Name="Admin_diffCustomNum2" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="Admin_colorYellow" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="Admin_colorBlue" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="Admin_colorRed" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
     </Setting>
   </Settings>
 </SettingsFile>
