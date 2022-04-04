@@ -111,6 +111,7 @@ namespace PreLab1
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu Screen";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MenuScreen_FormClosed);
+            this.Load += new System.EventHandler(this.MenuScreen_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

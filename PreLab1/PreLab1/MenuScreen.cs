@@ -50,6 +50,9 @@ namespace PreLab1
             Application.Exit();
         }
 
+        private void MenuScreen_Load(object sender, EventArgs e)
+        {
 
+        }
     }
 }

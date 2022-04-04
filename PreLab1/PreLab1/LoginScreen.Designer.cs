@@ -37,6 +37,7 @@ namespace PreLab1
             this.lbl_error = new System.Windows.Forms.Label();
             this.lbl_error2 = new System.Windows.Forms.Label();
             this.btnSıgnIn = new System.Windows.Forms.Button();
+            this.chk_Password = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // BtnLogin
@@ -119,11 +120,23 @@ namespace PreLab1
             this.btnSıgnIn.Text = "Sıgn In";
             this.btnSıgnIn.UseVisualStyleBackColor = true;
             // 
+            // chk_Password
+            // 
+            this.chk_Password.AutoSize = true;
+            this.chk_Password.Location = new System.Drawing.Point(381, 189);
+            this.chk_Password.Name = "chk_Password";
+            this.chk_Password.Size = new System.Drawing.Size(129, 21);
+            this.chk_Password.TabIndex = 8;
+            this.chk_Password.Text = "Show Password";
+            this.chk_Password.UseVisualStyleBackColor = true;
+            this.chk_Password.CheckedChanged += new System.EventHandler(this.chk_Password_CheckedChanged);
+            // 
             // LoginScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(565, 450);
+            this.Controls.Add(this.chk_Password);
             this.Controls.Add(this.btnSıgnIn);
             this.Controls.Add(this.lbl_error2);
             this.Controls.Add(this.lbl_error);
@@ -137,6 +150,7 @@ namespace PreLab1
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Log-in Screen";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.LoginScreen_FormClosed);
+            this.Load += new System.EventHandler(this.LoginScreen_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -152,6 +166,7 @@ namespace PreLab1
         private System.Windows.Forms.Label lbl_error;
         private System.Windows.Forms.Label lbl_error2;
         private System.Windows.Forms.Button btnSıgnIn;
+        private System.Windows.Forms.CheckBox chk_Password;
     }
 }
 
