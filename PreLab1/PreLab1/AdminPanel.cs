@@ -72,5 +72,21 @@ namespace PreLab1
             txt_email.Text = "";
         }
 
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+
+            //girilen kullanici adina gore silme
+            XDocument xDoc = XDocument.Load(@"users.xml");
+            xDoc.Root.Elements().Where(x => x.Element("UserName").Value == txt_userName.Text).Remove();
+            xDoc.Save(@"users.xml");
+            LoadFile();
+
+            txt_userName.Text = "";
+        }
     }
 }
