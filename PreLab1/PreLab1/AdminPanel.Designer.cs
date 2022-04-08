@@ -218,7 +218,6 @@ namespace PreLab1
             this.groupBox1.Size = new System.Drawing.Size(368, 270);
             this.groupBox1.TabIndex = 25;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // btnAdd
             // 
@@ -238,7 +237,6 @@ namespace PreLab1
             this.btnUpdate.TabIndex = 27;
             this.btnUpdate.Text = "UPDATE";
             this.btnUpdate.UseVisualStyleBackColor = true;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnDelete
             // 

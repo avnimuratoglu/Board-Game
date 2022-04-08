@@ -72,14 +72,5 @@ namespace PreLab1
             txt_email.Text = "";
         }
 
-        private void btnUpdate_Click(object sender, EventArgs e)
-        {
-            XDocument xDoc = XDocument.Load(@"users.xml");
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
     }
 }
