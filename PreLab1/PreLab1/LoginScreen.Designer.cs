@@ -37,12 +37,13 @@ namespace PreLab1
             this.lbl_error = new System.Windows.Forms.Label();
             this.lbl_error2 = new System.Windows.Forms.Label();
             this.btnSıgnIn = new System.Windows.Forms.Button();
+            this.chBox_password = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // BtnLogin
             // 
             this.BtnLogin.Enabled = false;
-            this.BtnLogin.Location = new System.Drawing.Point(199, 242);
+            this.BtnLogin.Location = new System.Drawing.Point(199, 279);
             this.BtnLogin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnLogin.Name = "BtnLogin";
             this.BtnLogin.Size = new System.Drawing.Size(157, 39);
@@ -54,7 +55,7 @@ namespace PreLab1
             // txtUserName
             // 
             this.txtUserName.AcceptsTab = true;
-            this.txtUserName.Location = new System.Drawing.Point(199, 135);
+            this.txtUserName.Location = new System.Drawing.Point(199, 130);
             this.txtUserName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(157, 22);
@@ -64,7 +65,7 @@ namespace PreLab1
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(199, 185);
+            this.txtPassword.Location = new System.Drawing.Point(199, 180);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
@@ -75,7 +76,7 @@ namespace PreLab1
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(56, 140);
+            this.lblName.Location = new System.Drawing.Point(56, 135);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(126, 17);
             this.lblName.TabIndex = 3;
@@ -84,7 +85,7 @@ namespace PreLab1
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
-            this.lblPassword.Location = new System.Drawing.Point(109, 190);
+            this.lblPassword.Location = new System.Drawing.Point(109, 185);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(73, 17);
             this.lblPassword.TabIndex = 4;
@@ -93,7 +94,7 @@ namespace PreLab1
             // lbl_error
             // 
             this.lbl_error.AutoSize = true;
-            this.lbl_error.Location = new System.Drawing.Point(234, 366);
+            this.lbl_error.Location = new System.Drawing.Point(234, 403);
             this.lbl_error.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_error.Name = "lbl_error";
             this.lbl_error.Size = new System.Drawing.Size(0, 17);
@@ -110,20 +111,32 @@ namespace PreLab1
             // 
             // btnSıgnIn
             // 
-            this.btnSıgnIn.Enabled = false;
-            this.btnSıgnIn.Location = new System.Drawing.Point(199, 300);
+            this.btnSıgnIn.Location = new System.Drawing.Point(199, 337);
             this.btnSıgnIn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSıgnIn.Name = "btnSıgnIn";
             this.btnSıgnIn.Size = new System.Drawing.Size(157, 39);
             this.btnSıgnIn.TabIndex = 7;
             this.btnSıgnIn.Text = "Sıgn In";
             this.btnSıgnIn.UseVisualStyleBackColor = true;
+            this.btnSıgnIn.Click += new System.EventHandler(this.btnSıgnIn_Click);
+            // 
+            // chBox_password
+            // 
+            this.chBox_password.AutoSize = true;
+            this.chBox_password.Location = new System.Drawing.Point(199, 222);
+            this.chBox_password.Name = "chBox_password";
+            this.chBox_password.Size = new System.Drawing.Size(129, 21);
+            this.chBox_password.TabIndex = 8;
+            this.chBox_password.Text = "Show Password";
+            this.chBox_password.UseVisualStyleBackColor = true;
+            this.chBox_password.CheckedChanged += new System.EventHandler(this.chBox_password_CheckedChanged);
             // 
             // LoginScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(565, 450);
+            this.Controls.Add(this.chBox_password);
             this.Controls.Add(this.btnSıgnIn);
             this.Controls.Add(this.lbl_error2);
             this.Controls.Add(this.lbl_error);
@@ -137,6 +150,7 @@ namespace PreLab1
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Log-in Screen";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.LoginScreen_FormClosed);
+            this.Load += new System.EventHandler(this.LoginScreen_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -152,6 +166,7 @@ namespace PreLab1
         private System.Windows.Forms.Label lbl_error;
         private System.Windows.Forms.Label lbl_error2;
         private System.Windows.Forms.Button btnSıgnIn;
+        private System.Windows.Forms.CheckBox chBox_password;
     }
 }
 

@@ -39,7 +39,7 @@ namespace PreLab1
             // Btn_Logout
             // 
             this.Btn_Logout.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.Btn_Logout.Location = new System.Drawing.Point(219, 332);
+            this.Btn_Logout.Location = new System.Drawing.Point(211, 330);
             this.Btn_Logout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Btn_Logout.Name = "Btn_Logout";
             this.Btn_Logout.Size = new System.Drawing.Size(189, 50);
@@ -53,7 +53,7 @@ namespace PreLab1
             this.Btn_Exit.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.Btn_Exit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
             this.Btn_Exit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.Btn_Exit.Location = new System.Drawing.Point(219, 417);
+            this.Btn_Exit.Location = new System.Drawing.Point(211, 416);
             this.Btn_Exit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Btn_Exit.Name = "Btn_Exit";
             this.Btn_Exit.Size = new System.Drawing.Size(189, 50);
@@ -65,7 +65,7 @@ namespace PreLab1
             // btnSettings
             // 
             this.btnSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnSettings.Location = new System.Drawing.Point(219, 251);
+            this.btnSettings.Location = new System.Drawing.Point(211, 244);
             this.btnSettings.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSettings.Name = "btnSettings";
             this.btnSettings.Size = new System.Drawing.Size(189, 50);
@@ -77,7 +77,7 @@ namespace PreLab1
             // Btn_Play
             // 
             this.Btn_Play.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.Btn_Play.Location = new System.Drawing.Point(219, 167);
+            this.Btn_Play.Location = new System.Drawing.Point(211, 158);
             this.Btn_Play.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Btn_Play.Name = "Btn_Play";
             this.Btn_Play.Size = new System.Drawing.Size(189, 50);
@@ -111,6 +111,7 @@ namespace PreLab1
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu Screen";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MenuScreen_FormClosed);
+            this.Load += new System.EventHandler(this.MenuScreen_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

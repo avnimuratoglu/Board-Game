@@ -21,8 +21,9 @@ namespace PreLab1
 
         private void Btn_Logout_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            
             loginScreen.Show();
+            this.Hide();
         }
 
         private void Btn_Exit_Click(object sender, EventArgs e)
@@ -50,6 +51,9 @@ namespace PreLab1
             Application.Exit();
         }
 
+        private void MenuScreen_Load(object sender, EventArgs e)
+        {
 
+        }
     }
 }
