@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Linq;
 using System.IO;
+using System.Security.Cryptography;
+
 
 namespace PreLab1
 {
@@ -18,6 +20,21 @@ namespace PreLab1
         public AdminPanel()
         {
             InitializeComponent();
+        }
+
+        static string Encrypt (string value) // SHA256
+        {
+            StringBuilder builder = new StringBuilder();
+
+            using (SHA256 hash = SHA256Managed.Create())
+            {
+                Encoding encoding = Encoding.UTF8;
+                byte[] result = hash.ComputeHash(encoding.GetBytes(value));
+
+                foreach (Byte b in result)
+                    builder.Append(b.ToString("x2"));
+            }
+            return builder.ToString();
         }
 
         void LoadFile()
@@ -37,13 +54,7 @@ namespace PreLab1
             LoadFile();
         }
 
-        private void AdminPanel_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            this.Close();
-
-            LoginScreen loginScreen = new LoginScreen();
-            loginScreen.Show();
-        }
+      
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
@@ -51,7 +62,7 @@ namespace PreLab1
             xDoc.Element("Users").Add(
                 new XElement("User",
                   new XElement("UserName", txt_userName.Text),
-                  new XElement("Password", txt_password.Text),
+                  new XElement("Password", Encrypt(txt_password.Text)),
                   new XElement("NameSurname", txt_nameSurname.Text),
                   new XElement("PhoneNumber", txt_phoneNumber.Text),
                   new XElement("Address", txt_address.Text),
@@ -74,7 +85,31 @@ namespace PreLab1
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-           
+            XDocument xDoc = XDocument.Load(@"users.xml");
+            XElement node = xDoc.Element("Users").Elements("User").FirstOrDefault(x => x.Element("userName").Value == txt_userName.Text);
+
+            if (node != null) 
+            {
+                node.SetElementValue("Password", Encrypt(txt_password.Text));
+                node.SetElementValue("NameSurname", txt_nameSurname.Text);
+                node.SetElementValue("PhoneNumber", txt_phoneNumber.Text);
+                node.SetElementValue("Address", txt_address.Text);
+                node.SetElementValue("City", txt_city.Text);
+                node.SetElementValue("Country", txt_country.Text);
+                node.SetElementValue("E-Mail", txt_email.Text);
+
+                xDoc.Save(@"users.xml");
+                LoadFile();
+            }
+
+            txt_userName.Text = "";
+            txt_password.Text = "";
+            txt_nameSurname.Text = "";
+            txt_phoneNumber.Text = "";
+            txt_address.Text = "";
+            txt_city.Text = "";
+            txt_country.Text = "";
+            txt_email.Text = "";
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -88,5 +123,13 @@ namespace PreLab1
 
             txt_userName.Text = "";
         }
+        private void AdminPanel_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Close();
+
+            LoginScreen loginScreen = new LoginScreen();
+            loginScreen.Show();
+        }
+        
     }
 }
