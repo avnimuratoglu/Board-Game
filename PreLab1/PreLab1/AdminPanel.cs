@@ -45,6 +45,8 @@ namespace PreLab1
             xmlFile = XmlReader.Create(@"users.xml", new XmlReaderSettings());
             ds.ReadXml(xmlFile);
             dataGridView_adminP.DataSource = ds.Tables[0];
+            dataGridView_adminP.Columns["Password"].Visible = false;
+
             xmlFile.Close();
 
         }
@@ -55,7 +57,7 @@ namespace PreLab1
         }
 
       
-
+         
         private void btnAdd_Click(object sender, EventArgs e)
         {
             XDocument xDoc = XDocument.Load(@"users.xml");
@@ -85,10 +87,11 @@ namespace PreLab1
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            //girilen kullanici adina gore guncelleme.,,,
             XDocument xDoc = XDocument.Load(@"users.xml");
-            XElement node = xDoc.Element("Users").Elements("User").FirstOrDefault(x => x.Element("userName").Value == txt_userName.Text);
+            XElement node = xDoc.Element("Users").Elements("User").FirstOrDefault(x => x.Element("UserName").Value == txt_userName.Text);
 
-            if (node != null) 
+            if (node != null)
             {
                 node.SetElementValue("Password", Encrypt(txt_password.Text));
                 node.SetElementValue("NameSurname", txt_nameSurname.Text);
