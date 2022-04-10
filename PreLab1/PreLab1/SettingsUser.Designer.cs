@@ -166,17 +166,5 @@ namespace PreLab1 {
                 this["User_colorRed"] = value;
             }
         }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool entry {
-            get {
-                return ((bool)(this["entry"]));
-            }
-            set {
-                this["entry"] = value;
-            }
-        }
     }
 }

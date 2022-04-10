@@ -59,12 +59,11 @@ namespace PreLab1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.Location = new System.Drawing.Point(238, 29);
+            this.label1.Location = new System.Drawing.Point(249, 29);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(189, 38);
             this.label1.TabIndex = 0;
             this.label1.Text = "SETTINGS";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // rBtn_Easy
             // 
@@ -82,7 +81,7 @@ namespace PreLab1
             // 
             this.rBtn_Normal.AutoSize = true;
             this.rBtn_Normal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.rBtn_Normal.Location = new System.Drawing.Point(228, 43);
+            this.rBtn_Normal.Location = new System.Drawing.Point(220, 43);
             this.rBtn_Normal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rBtn_Normal.Name = "rBtn_Normal";
             this.rBtn_Normal.Size = new System.Drawing.Size(90, 24);
@@ -94,7 +93,7 @@ namespace PreLab1
             // 
             this.rBtn_Hard.AutoSize = true;
             this.rBtn_Hard.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.rBtn_Hard.Location = new System.Drawing.Point(380, 43);
+            this.rBtn_Hard.Location = new System.Drawing.Point(385, 43);
             this.rBtn_Hard.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rBtn_Hard.Name = "rBtn_Hard";
             this.rBtn_Hard.Size = new System.Drawing.Size(71, 24);
@@ -150,7 +149,7 @@ namespace PreLab1
             // 
             this.cBx_Round.AutoSize = true;
             this.cBx_Round.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.cBx_Round.Location = new System.Drawing.Point(380, 44);
+            this.cBx_Round.Location = new System.Drawing.Point(385, 42);
             this.cBx_Round.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cBx_Round.Name = "cBx_Round";
             this.cBx_Round.Size = new System.Drawing.Size(84, 24);
@@ -162,7 +161,7 @@ namespace PreLab1
             // 
             this.cBx_Square.AutoSize = true;
             this.cBx_Square.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.cBx_Square.Location = new System.Drawing.Point(75, 44);
+            this.cBx_Square.Location = new System.Drawing.Point(74, 42);
             this.cBx_Square.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cBx_Square.Name = "cBx_Square";
             this.cBx_Square.Size = new System.Drawing.Size(90, 24);
@@ -174,7 +173,7 @@ namespace PreLab1
             // 
             this.cBx_Triangle.AutoSize = true;
             this.cBx_Triangle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.cBx_Triangle.Location = new System.Drawing.Point(228, 44);
+            this.cBx_Triangle.Location = new System.Drawing.Point(220, 42);
             this.cBx_Triangle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cBx_Triangle.Name = "cBx_Triangle";
             this.cBx_Triangle.Size = new System.Drawing.Size(99, 24);
@@ -185,7 +184,7 @@ namespace PreLab1
             // Btn_Save
             // 
             this.Btn_Save.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.Btn_Save.Location = new System.Drawing.Point(467, 542);
+            this.Btn_Save.Location = new System.Drawing.Point(486, 517);
             this.Btn_Save.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Btn_Save.Name = "Btn_Save";
             this.Btn_Save.Size = new System.Drawing.Size(189, 54);
@@ -196,7 +195,7 @@ namespace PreLab1
             // 
             // txtNum1
             // 
-            this.txtNum1.Location = new System.Drawing.Point(609, 183);
+            this.txtNum1.Location = new System.Drawing.Point(617, 185);
             this.txtNum1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNum1.Name = "txtNum1";
             this.txtNum1.Size = new System.Drawing.Size(39, 22);
@@ -206,7 +205,7 @@ namespace PreLab1
             // 
             // txtNum2
             // 
-            this.txtNum2.Location = new System.Drawing.Point(609, 216);
+            this.txtNum2.Location = new System.Drawing.Point(617, 218);
             this.txtNum2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNum2.Name = "txtNum2";
             this.txtNum2.Size = new System.Drawing.Size(39, 22);
@@ -217,7 +216,7 @@ namespace PreLab1
             // lblNum1
             // 
             this.lblNum1.AutoSize = true;
-            this.lblNum1.Location = new System.Drawing.Point(481, 178);
+            this.lblNum1.Location = new System.Drawing.Point(499, 188);
             this.lblNum1.Name = "lblNum1";
             this.lblNum1.Size = new System.Drawing.Size(112, 17);
             this.lblNum1.TabIndex = 12;
@@ -227,7 +226,7 @@ namespace PreLab1
             // lblNum2
             // 
             this.lblNum2.AutoSize = true;
-            this.lblNum2.Location = new System.Drawing.Point(481, 211);
+            this.lblNum2.Location = new System.Drawing.Point(499, 221);
             this.lblNum2.Name = "lblNum2";
             this.lblNum2.Size = new System.Drawing.Size(112, 17);
             this.lblNum2.TabIndex = 13;
@@ -255,7 +254,7 @@ namespace PreLab1
             this.cBx_Yellow.AutoSize = true;
             this.cBx_Yellow.BackColor = System.Drawing.SystemColors.Info;
             this.cBx_Yellow.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.cBx_Yellow.Location = new System.Drawing.Point(76, 44);
+            this.cBx_Yellow.Location = new System.Drawing.Point(74, 44);
             this.cBx_Yellow.Name = "cBx_Yellow";
             this.cBx_Yellow.Size = new System.Drawing.Size(85, 24);
             this.cBx_Yellow.TabIndex = 10;
@@ -267,7 +266,7 @@ namespace PreLab1
             this.cBx_Blue.AutoSize = true;
             this.cBx_Blue.BackColor = System.Drawing.SystemColors.Highlight;
             this.cBx_Blue.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.cBx_Blue.Location = new System.Drawing.Point(228, 44);
+            this.cBx_Blue.Location = new System.Drawing.Point(220, 44);
             this.cBx_Blue.Name = "cBx_Blue";
             this.cBx_Blue.Size = new System.Drawing.Size(69, 24);
             this.cBx_Blue.TabIndex = 16;
@@ -279,7 +278,7 @@ namespace PreLab1
             this.cBx_Red.AutoSize = true;
             this.cBx_Red.BackColor = System.Drawing.Color.Red;
             this.cBx_Red.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.cBx_Red.Location = new System.Drawing.Point(380, 44);
+            this.cBx_Red.Location = new System.Drawing.Point(385, 44);
             this.cBx_Red.Name = "cBx_Red";
             this.cBx_Red.Size = new System.Drawing.Size(64, 24);
             this.cBx_Red.TabIndex = 17;
@@ -305,7 +304,7 @@ namespace PreLab1
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(687, 619);
+            this.ClientSize = new System.Drawing.Size(687, 596);
             this.Controls.Add(this.gBx_Color);
             this.Controls.Add(this.lbl_CustomErrorNum2);
             this.Controls.Add(this.lbl_CustomErrorNum1);

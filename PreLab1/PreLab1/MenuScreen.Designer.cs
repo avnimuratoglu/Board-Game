@@ -34,12 +34,13 @@ namespace PreLab1
             this.btnSettings = new System.Windows.Forms.Button();
             this.Btn_Play = new System.Windows.Forms.Button();
             this.lbl_Menu = new System.Windows.Forms.Label();
+            this.Btn_Profile = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Btn_Logout
             // 
             this.Btn_Logout.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.Btn_Logout.Location = new System.Drawing.Point(219, 332);
+            this.Btn_Logout.Location = new System.Drawing.Point(211, 377);
             this.Btn_Logout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Btn_Logout.Name = "Btn_Logout";
             this.Btn_Logout.Size = new System.Drawing.Size(189, 50);
@@ -53,7 +54,7 @@ namespace PreLab1
             this.Btn_Exit.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.Btn_Exit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
             this.Btn_Exit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.Btn_Exit.Location = new System.Drawing.Point(219, 417);
+            this.Btn_Exit.Location = new System.Drawing.Point(211, 450);
             this.Btn_Exit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Btn_Exit.Name = "Btn_Exit";
             this.Btn_Exit.Size = new System.Drawing.Size(189, 50);
@@ -65,7 +66,7 @@ namespace PreLab1
             // btnSettings
             // 
             this.btnSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnSettings.Location = new System.Drawing.Point(219, 251);
+            this.btnSettings.Location = new System.Drawing.Point(211, 304);
             this.btnSettings.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSettings.Name = "btnSettings";
             this.btnSettings.Size = new System.Drawing.Size(189, 50);
@@ -77,7 +78,7 @@ namespace PreLab1
             // Btn_Play
             // 
             this.Btn_Play.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.Btn_Play.Location = new System.Drawing.Point(219, 167);
+            this.Btn_Play.Location = new System.Drawing.Point(211, 158);
             this.Btn_Play.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Btn_Play.Name = "Btn_Play";
             this.Btn_Play.Size = new System.Drawing.Size(189, 50);
@@ -90,17 +91,30 @@ namespace PreLab1
             // 
             this.lbl_Menu.AutoSize = true;
             this.lbl_Menu.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lbl_Menu.Location = new System.Drawing.Point(191, 84);
+            this.lbl_Menu.Location = new System.Drawing.Point(191, 65);
             this.lbl_Menu.Name = "lbl_Menu";
             this.lbl_Menu.Size = new System.Drawing.Size(229, 38);
             this.lbl_Menu.TabIndex = 6;
             this.lbl_Menu.Text = "GAME MENU";
+            // 
+            // Btn_Profile
+            // 
+            this.Btn_Profile.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.Btn_Profile.Location = new System.Drawing.Point(211, 231);
+            this.Btn_Profile.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Btn_Profile.Name = "Btn_Profile";
+            this.Btn_Profile.Size = new System.Drawing.Size(189, 50);
+            this.Btn_Profile.TabIndex = 7;
+            this.Btn_Profile.Text = "PROFILE";
+            this.Btn_Profile.UseVisualStyleBackColor = true;
+            this.Btn_Profile.Click += new System.EventHandler(this.Btn_Profile_Click);
             // 
             // MenuScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(643, 529);
+            this.Controls.Add(this.Btn_Profile);
             this.Controls.Add(this.lbl_Menu);
             this.Controls.Add(this.Btn_Play);
             this.Controls.Add(this.btnSettings);
@@ -124,5 +138,6 @@ namespace PreLab1
         private System.Windows.Forms.Button btnSettings;
         private System.Windows.Forms.Button Btn_Play;
         private System.Windows.Forms.Label lbl_Menu;
+        private System.Windows.Forms.Button Btn_Profile;
     }
 }

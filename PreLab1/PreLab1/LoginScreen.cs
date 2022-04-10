@@ -7,6 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using System.Xml;
+using System.Xml.Linq;
+using System.Security.Cryptography;
+
 
 namespace PreLab1
 {
@@ -17,91 +22,102 @@ namespace PreLab1
             InitializeComponent();
         }
 
-        public string nameAdmin = "admin", nameUser = "user";
-        public string passAdmin = "admin", passUser = "user";
-        public static bool flag; //user or admin
+        static string Encrypt(string value) // string to SHA256
+        {
+            StringBuilder builder = new StringBuilder();
+
+            using (SHA256 hash = SHA256Managed.Create())
+            {
+                Encoding encoding = Encoding.UTF8;
+                byte[] result = hash.ComputeHash(encoding.GetBytes(value));
+
+                foreach (Byte b in result)
+                    builder.Append(b.ToString("x2"));
+            }
+            return builder.ToString();
+        }
         private void txtUserName_TextChanged(object sender, EventArgs e)
         {
-            //    if(!System.Text.RegularExpressions.Regex.IsMatch(txtUserName.Text, "^[a-z]"))
-            //    {
-            //        txtUserName.Text.Remove(txtUserName.Text.Length - 1);
-            //    }
-            
             if (txtUserName.TextLength == 0)
                 BtnLogin.Enabled = false;
             else
                 BtnLogin.Enabled = true;
-
         }
 
-    
-         void BtnLogin_Click(object sender, EventArgs e)
+        public static bool 
+            flag = false; //user or admin
+        private void BtnLogin_Click(object sender, EventArgs e)
         {
 
-            if (txtUserName.Text == nameUser && txtPassword.Text == passUser )
+            XmlDocument xDoc = new XmlDocument();
+            xDoc.Load(@"users.xml");
+
+            FileStream fs = new FileStream(@"Entry.txt", FileMode.Open, FileAccess.Write);
+            StreamWriter entry = new StreamWriter(fs);
+            entry.WriteLine(txtUserName.Text);
+            entry.Close();
+            
+            foreach (XmlNode node in xDoc.SelectNodes("//User"))
             {
-                this.Hide();
-                flag = false; //user
-                MenuScreen menuScreen = new MenuScreen();
-                menuScreen.ShowDialog();
+                string userName = node.SelectSingleNode("UserName").InnerText;
+                string password = node.SelectSingleNode("Password").InnerText;
 
-                SettingsUser.Default.entry = false;
-
+                if(userName == txtUserName.Text && password == Encrypt(txtPassword.Text))
+                {
+                    this.Hide();
+                    if(userName == "admin")
+                    {
+                        AdminScreen adminScreen = new AdminScreen();
+                        adminScreen.Show();
+                    }
+                    else
+                    {
+                        MenuScreen menuScreen = new MenuScreen();
+                        menuScreen.Show();
+                    }
+                }
             }
-            if (txtUserName.Text == nameAdmin && txtPassword.Text == passAdmin)
-            {
-                this.Hide();
-                flag = true;//admin
-                MenuScreen menuScreen = new MenuScreen();
-                menuScreen.ShowDialog();
-
-                SettingsUser.Default.entry = true;
-                // SettingsUser.Default.entry = nameAdmin;
-            }
-            else
-            {
-                lbl_error.Text = "Warning!";
-                lbl_error2.Text = "You entered wrong name or password!";
-            }
-
-           
         }
 
 
         private void txtUserName_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar)
-                && !char.IsSeparator(e.KeyChar);
-
             if (e.KeyChar == (char)Keys.Enter)
                 BtnLogin_Click(sender, e);
         }
 
-        private void chk_Password_CheckedChanged(object sender, EventArgs e)
+        private void LoginScreen_Load(object sender, EventArgs e)
         {
-            if (chk_Password.Checked)
+            FileStream fs = new FileStream(@"Entry.txt", FileMode.Open, FileAccess.ReadWrite);
+            StreamReader entry = new StreamReader(fs);
+            txtUserName.Text = entry.ReadLine();
+            entry.Close();
+        }
+
+        private void btnSıgnIn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            SignupScreen signinScreen = new SignupScreen();
+            signinScreen.ShowDialog();
+        }
+
+        private void chBox_password_CheckedChanged(object sender, EventArgs e)
+        {
+            //show password
+            if (chBox_password.Checked)
             {
                 txtPassword.PasswordChar = '\0';
-                chk_Password.Text = "Gizle";
             }
             else
             {
                 txtPassword.PasswordChar = '*';
-                chk_Password.Text = "Göster";
             }
-        }
-
-        private void LoginScreen_Load(object sender, EventArgs e)
-        {
-            if (SettingsUser.Default.entry == true)
-                txtUserName.Text = "admin";
-            if (SettingsUser.Default.entry == false)
-                txtUserName.Text = "user";
-
         }
 
         private void txtPassword_KeyPress(object sender, KeyPressEventArgs e)
         {
+            //press enter key
             if (e.KeyChar == (char)Keys.Enter)
                 BtnLogin_Click(sender, e);
         }
