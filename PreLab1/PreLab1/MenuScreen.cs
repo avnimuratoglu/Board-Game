@@ -55,5 +55,11 @@ namespace PreLab1
         {
 
         }
+
+        private void Btn_Profile_Click(object sender, EventArgs e)
+        {
+            ProfileScreen profileScreen = new ProfileScreen();
+            profileScreen.ShowDialog();
+        }
     }
 }
