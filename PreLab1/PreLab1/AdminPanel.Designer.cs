@@ -29,7 +29,13 @@ namespace PreLab1
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView_adminP = new System.Windows.Forms.DataGridView();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btn_AddUser = new System.Windows.Forms.Button();
+            this.btn_UpdateUser = new System.Windows.Forms.Button();
+            this.btn_DeleteUser = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txt_UserName = new System.Windows.Forms.TextBox();
+            this.lbl_UserName = new System.Windows.Forms.Label();
             this.txt_email = new System.Windows.Forms.TextBox();
             this.txt_country = new System.Windows.Forms.TextBox();
             this.txt_nameSurname = new System.Windows.Forms.TextBox();
@@ -37,7 +43,6 @@ namespace PreLab1
             this.txt_address = new System.Windows.Forms.TextBox();
             this.txt_city = new System.Windows.Forms.TextBox();
             this.txt_password = new System.Windows.Forms.TextBox();
-            this.txt_userName = new System.Windows.Forms.TextBox();
             this.lbl_email = new System.Windows.Forms.Label();
             this.lbl_city = new System.Windows.Forms.Label();
             this.lbl_country = new System.Windows.Forms.Label();
@@ -45,159 +50,62 @@ namespace PreLab1
             this.lbl_phoneNumber = new System.Windows.Forms.Label();
             this.lbl_nameSurname = new System.Windows.Forms.Label();
             this.lbl_password = new System.Windows.Forms.Label();
-            this.lbl_userName = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.btnUpdate = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.btnExit = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_adminP)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dataGridView_adminP
+            // dataGridView1
             // 
-            this.dataGridView_adminP.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView_adminP.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_adminP.Location = new System.Drawing.Point(12, 12);
-            this.dataGridView_adminP.Name = "dataGridView_adminP";
-            this.dataGridView_adminP.RowHeadersWidth = 51;
-            this.dataGridView_adminP.RowTemplate.Height = 24;
-            this.dataGridView_adminP.Size = new System.Drawing.Size(819, 245);
-            this.dataGridView_adminP.TabIndex = 0;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(12, 12);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(842, 265);
+            this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
-            // txt_email
+            // btn_AddUser
             // 
-            this.txt_email.Location = new System.Drawing.Point(135, 234);
-            this.txt_email.Name = "txt_email";
-            this.txt_email.Size = new System.Drawing.Size(209, 22);
-            this.txt_email.TabIndex = 24;
+            this.btn_AddUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btn_AddUser.Location = new System.Drawing.Point(583, 316);
+            this.btn_AddUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_AddUser.Name = "btn_AddUser";
+            this.btn_AddUser.Size = new System.Drawing.Size(189, 50);
+            this.btn_AddUser.TabIndex = 12;
+            this.btn_AddUser.Text = "ADD USER";
+            this.btn_AddUser.UseVisualStyleBackColor = true;
+            this.btn_AddUser.Click += new System.EventHandler(this.btn_AddUser_Click_1);
             // 
-            // txt_country
+            // btn_UpdateUser
             // 
-            this.txt_country.Location = new System.Drawing.Point(135, 204);
-            this.txt_country.Name = "txt_country";
-            this.txt_country.Size = new System.Drawing.Size(209, 22);
-            this.txt_country.TabIndex = 22;
+            this.btn_UpdateUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btn_UpdateUser.Location = new System.Drawing.Point(583, 429);
+            this.btn_UpdateUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_UpdateUser.Name = "btn_UpdateUser";
+            this.btn_UpdateUser.Size = new System.Drawing.Size(189, 50);
+            this.btn_UpdateUser.TabIndex = 14;
+            this.btn_UpdateUser.Text = "UPDATE USER";
+            this.btn_UpdateUser.UseVisualStyleBackColor = true;
+            this.btn_UpdateUser.Click += new System.EventHandler(this.btn_UpdateUser_Click);
             // 
-            // txt_nameSurname
+            // btn_DeleteUser
             // 
-            this.txt_nameSurname.Location = new System.Drawing.Point(135, 84);
-            this.txt_nameSurname.Name = "txt_nameSurname";
-            this.txt_nameSurname.Size = new System.Drawing.Size(209, 22);
-            this.txt_nameSurname.TabIndex = 14;
-            // 
-            // txt_phoneNumber
-            // 
-            this.txt_phoneNumber.Location = new System.Drawing.Point(135, 114);
-            this.txt_phoneNumber.Name = "txt_phoneNumber";
-            this.txt_phoneNumber.Size = new System.Drawing.Size(209, 22);
-            this.txt_phoneNumber.TabIndex = 16;
-            // 
-            // txt_address
-            // 
-            this.txt_address.Location = new System.Drawing.Point(135, 144);
-            this.txt_address.Name = "txt_address";
-            this.txt_address.Size = new System.Drawing.Size(209, 22);
-            this.txt_address.TabIndex = 18;
-            // 
-            // txt_city
-            // 
-            this.txt_city.Location = new System.Drawing.Point(135, 174);
-            this.txt_city.Name = "txt_city";
-            this.txt_city.Size = new System.Drawing.Size(209, 22);
-            this.txt_city.TabIndex = 20;
-            // 
-            // txt_password
-            // 
-            this.txt_password.Location = new System.Drawing.Point(135, 54);
-            this.txt_password.Name = "txt_password";
-            this.txt_password.Size = new System.Drawing.Size(209, 22);
-            this.txt_password.TabIndex = 12;
-            // 
-            // txt_userName
-            // 
-            this.txt_userName.Location = new System.Drawing.Point(135, 24);
-            this.txt_userName.Name = "txt_userName";
-            this.txt_userName.Size = new System.Drawing.Size(209, 22);
-            this.txt_userName.TabIndex = 10;
-            // 
-            // lbl_email
-            // 
-            this.lbl_email.AutoSize = true;
-            this.lbl_email.Location = new System.Drawing.Point(11, 234);
-            this.lbl_email.Name = "lbl_email";
-            this.lbl_email.Size = new System.Drawing.Size(63, 17);
-            this.lbl_email.TabIndex = 23;
-            this.lbl_email.Text = "E - Mail :";
-            // 
-            // lbl_city
-            // 
-            this.lbl_city.AutoSize = true;
-            this.lbl_city.Location = new System.Drawing.Point(10, 174);
-            this.lbl_city.Name = "lbl_city";
-            this.lbl_city.Size = new System.Drawing.Size(39, 17);
-            this.lbl_city.TabIndex = 21;
-            this.lbl_city.Text = "City :";
-            // 
-            // lbl_country
-            // 
-            this.lbl_country.AutoSize = true;
-            this.lbl_country.Location = new System.Drawing.Point(9, 204);
-            this.lbl_country.Name = "lbl_country";
-            this.lbl_country.Size = new System.Drawing.Size(65, 17);
-            this.lbl_country.TabIndex = 19;
-            this.lbl_country.Text = "Country :";
-            // 
-            // lbl_address
-            // 
-            this.lbl_address.AutoSize = true;
-            this.lbl_address.Location = new System.Drawing.Point(6, 144);
-            this.lbl_address.Name = "lbl_address";
-            this.lbl_address.Size = new System.Drawing.Size(68, 17);
-            this.lbl_address.TabIndex = 17;
-            this.lbl_address.Text = "Address :";
-            // 
-            // lbl_phoneNumber
-            // 
-            this.lbl_phoneNumber.AutoSize = true;
-            this.lbl_phoneNumber.Location = new System.Drawing.Point(6, 114);
-            this.lbl_phoneNumber.Name = "lbl_phoneNumber";
-            this.lbl_phoneNumber.Size = new System.Drawing.Size(111, 17);
-            this.lbl_phoneNumber.TabIndex = 15;
-            this.lbl_phoneNumber.Text = "Phone Number :";
-            // 
-            // lbl_nameSurname
-            // 
-            this.lbl_nameSurname.AutoSize = true;
-            this.lbl_nameSurname.Location = new System.Drawing.Point(6, 84);
-            this.lbl_nameSurname.Name = "lbl_nameSurname";
-            this.lbl_nameSurname.Size = new System.Drawing.Size(123, 17);
-            this.lbl_nameSurname.TabIndex = 13;
-            this.lbl_nameSurname.Text = "Name - Surname :";
-            // 
-            // lbl_password
-            // 
-            this.lbl_password.AutoSize = true;
-            this.lbl_password.Location = new System.Drawing.Point(6, 54);
-            this.lbl_password.Name = "lbl_password";
-            this.lbl_password.Size = new System.Drawing.Size(77, 17);
-            this.lbl_password.TabIndex = 11;
-            this.lbl_password.Text = "Password :";
-            // 
-            // lbl_userName
-            // 
-            this.lbl_userName.AutoSize = true;
-            this.lbl_userName.Location = new System.Drawing.Point(6, 24);
-            this.lbl_userName.Name = "lbl_userName";
-            this.lbl_userName.Size = new System.Drawing.Size(87, 17);
-            this.lbl_userName.TabIndex = 9;
-            this.lbl_userName.Text = "User Name :";
+            this.btn_DeleteUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btn_DeleteUser.Location = new System.Drawing.Point(583, 542);
+            this.btn_DeleteUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_DeleteUser.Name = "btn_DeleteUser";
+            this.btn_DeleteUser.Size = new System.Drawing.Size(189, 50);
+            this.btn_DeleteUser.TabIndex = 15;
+            this.btn_DeleteUser.Text = "DELETE USER";
+            this.btn_DeleteUser.UseVisualStyleBackColor = true;
+            this.btn_DeleteUser.Click += new System.EventHandler(this.btn_DeleteUser_Click);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.txt_userName);
-            this.groupBox1.Controls.Add(this.lbl_userName);
+            this.groupBox1.Controls.Add(this.txt_UserName);
+            this.groupBox1.Controls.Add(this.lbl_UserName);
             this.groupBox1.Controls.Add(this.txt_email);
             this.groupBox1.Controls.Add(this.txt_country);
             this.groupBox1.Controls.Add(this.txt_nameSurname);
@@ -213,68 +121,163 @@ namespace PreLab1
             this.groupBox1.Controls.Add(this.lbl_nameSurname);
             this.groupBox1.Controls.Add(this.lbl_password);
             this.groupBox1.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.groupBox1.Location = new System.Drawing.Point(12, 263);
+            this.groupBox1.Location = new System.Drawing.Point(47, 283);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(368, 270);
-            this.groupBox1.TabIndex = 25;
+            this.groupBox1.Size = new System.Drawing.Size(461, 327);
+            this.groupBox1.TabIndex = 28;
             this.groupBox1.TabStop = false;
             // 
-            // btnAdd
+            // txt_UserName
             // 
-            this.btnAdd.Location = new System.Drawing.Point(667, 284);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(164, 42);
-            this.btnAdd.TabIndex = 26;
-            this.btnAdd.Text = "ADD";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            this.txt_UserName.Location = new System.Drawing.Point(239, 48);
+            this.txt_UserName.Name = "txt_UserName";
+            this.txt_UserName.Size = new System.Drawing.Size(198, 22);
+            this.txt_UserName.TabIndex = 26;
             // 
-            // btnUpdate
+            // lbl_UserName
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(667, 347);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(164, 42);
-            this.btnUpdate.TabIndex = 27;
-            this.btnUpdate.Text = "UPDATE";
-            this.btnUpdate.UseVisualStyleBackColor = true;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            this.lbl_UserName.AutoSize = true;
+            this.lbl_UserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_UserName.Location = new System.Drawing.Point(29, 50);
+            this.lbl_UserName.Name = "lbl_UserName";
+            this.lbl_UserName.Size = new System.Drawing.Size(99, 20);
+            this.lbl_UserName.TabIndex = 25;
+            this.lbl_UserName.Text = "User Name:";
             // 
-            // btnDelete
+            // txt_email
             // 
-            this.btnDelete.Location = new System.Drawing.Point(667, 410);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(164, 42);
-            this.btnDelete.TabIndex = 28;
-            this.btnDelete.Text = "DELETE";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            this.txt_email.Location = new System.Drawing.Point(239, 259);
+            this.txt_email.Name = "txt_email";
+            this.txt_email.Size = new System.Drawing.Size(198, 22);
+            this.txt_email.TabIndex = 24;
             // 
-            // btnExit
+            // txt_country
             // 
-            this.btnExit.Location = new System.Drawing.Point(667, 473);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(164, 42);
-            this.btnExit.TabIndex = 29;
-            this.btnExit.Text = "EXIT";
-            this.btnExit.UseVisualStyleBackColor = true;
+            this.txt_country.Location = new System.Drawing.Point(239, 229);
+            this.txt_country.Name = "txt_country";
+            this.txt_country.Size = new System.Drawing.Size(198, 22);
+            this.txt_country.TabIndex = 22;
+            // 
+            // txt_nameSurname
+            // 
+            this.txt_nameSurname.Location = new System.Drawing.Point(239, 109);
+            this.txt_nameSurname.Name = "txt_nameSurname";
+            this.txt_nameSurname.Size = new System.Drawing.Size(198, 22);
+            this.txt_nameSurname.TabIndex = 14;
+            // 
+            // txt_phoneNumber
+            // 
+            this.txt_phoneNumber.Location = new System.Drawing.Point(239, 139);
+            this.txt_phoneNumber.Name = "txt_phoneNumber";
+            this.txt_phoneNumber.Size = new System.Drawing.Size(198, 22);
+            this.txt_phoneNumber.TabIndex = 16;
+            // 
+            // txt_address
+            // 
+            this.txt_address.Location = new System.Drawing.Point(239, 169);
+            this.txt_address.Name = "txt_address";
+            this.txt_address.Size = new System.Drawing.Size(198, 22);
+            this.txt_address.TabIndex = 18;
+            // 
+            // txt_city
+            // 
+            this.txt_city.Location = new System.Drawing.Point(239, 199);
+            this.txt_city.Name = "txt_city";
+            this.txt_city.Size = new System.Drawing.Size(198, 22);
+            this.txt_city.TabIndex = 20;
+            // 
+            // txt_password
+            // 
+            this.txt_password.Location = new System.Drawing.Point(239, 79);
+            this.txt_password.Name = "txt_password";
+            this.txt_password.Size = new System.Drawing.Size(198, 22);
+            this.txt_password.TabIndex = 12;
+            // 
+            // lbl_email
+            // 
+            this.lbl_email.AutoSize = true;
+            this.lbl_email.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_email.Location = new System.Drawing.Point(29, 260);
+            this.lbl_email.Name = "lbl_email";
+            this.lbl_email.Size = new System.Drawing.Size(77, 20);
+            this.lbl_email.TabIndex = 23;
+            this.lbl_email.Text = "E - Mail :";
+            // 
+            // lbl_city
+            // 
+            this.lbl_city.AutoSize = true;
+            this.lbl_city.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_city.Location = new System.Drawing.Point(29, 200);
+            this.lbl_city.Name = "lbl_city";
+            this.lbl_city.Size = new System.Drawing.Size(48, 20);
+            this.lbl_city.TabIndex = 21;
+            this.lbl_city.Text = "City :";
+            // 
+            // lbl_country
+            // 
+            this.lbl_country.AutoSize = true;
+            this.lbl_country.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_country.Location = new System.Drawing.Point(29, 230);
+            this.lbl_country.Name = "lbl_country";
+            this.lbl_country.Size = new System.Drawing.Size(77, 20);
+            this.lbl_country.TabIndex = 19;
+            this.lbl_country.Text = "Country :";
+            // 
+            // lbl_address
+            // 
+            this.lbl_address.AutoSize = true;
+            this.lbl_address.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_address.Location = new System.Drawing.Point(29, 170);
+            this.lbl_address.Name = "lbl_address";
+            this.lbl_address.Size = new System.Drawing.Size(81, 20);
+            this.lbl_address.TabIndex = 17;
+            this.lbl_address.Text = "Address :";
+            // 
+            // lbl_phoneNumber
+            // 
+            this.lbl_phoneNumber.AutoSize = true;
+            this.lbl_phoneNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_phoneNumber.Location = new System.Drawing.Point(29, 140);
+            this.lbl_phoneNumber.Name = "lbl_phoneNumber";
+            this.lbl_phoneNumber.Size = new System.Drawing.Size(130, 20);
+            this.lbl_phoneNumber.TabIndex = 15;
+            this.lbl_phoneNumber.Text = "Phone Number :";
+            // 
+            // lbl_nameSurname
+            // 
+            this.lbl_nameSurname.AutoSize = true;
+            this.lbl_nameSurname.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_nameSurname.Location = new System.Drawing.Point(29, 110);
+            this.lbl_nameSurname.Name = "lbl_nameSurname";
+            this.lbl_nameSurname.Size = new System.Drawing.Size(146, 20);
+            this.lbl_nameSurname.TabIndex = 13;
+            this.lbl_nameSurname.Text = "Name - Surname :";
+            // 
+            // lbl_password
+            // 
+            this.lbl_password.AutoSize = true;
+            this.lbl_password.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_password.Location = new System.Drawing.Point(29, 80);
+            this.lbl_password.Name = "lbl_password";
+            this.lbl_password.Size = new System.Drawing.Size(93, 20);
+            this.lbl_password.TabIndex = 11;
+            this.lbl_password.Text = "Password :";
             // 
             // AdminPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(843, 555);
-            this.Controls.Add(this.btnExit);
-            this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.btnUpdate);
-            this.Controls.Add(this.btnAdd);
+            this.ClientSize = new System.Drawing.Size(866, 621);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.dataGridView_adminP);
+            this.Controls.Add(this.btn_DeleteUser);
+            this.Controls.Add(this.btn_UpdateUser);
+            this.Controls.Add(this.btn_AddUser);
+            this.Controls.Add(this.dataGridView1);
             this.Name = "AdminPanel";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminPanel";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AdminPanel_FormClosed);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AdminPanel_FormClosing);
             this.Load += new System.EventHandler(this.AdminPanel_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_adminP)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -283,7 +286,13 @@ namespace PreLab1
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView_adminP;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button btn_AddUser;
+        private System.Windows.Forms.Button btn_UpdateUser;
+        private System.Windows.Forms.Button btn_DeleteUser;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TextBox txt_UserName;
+        private System.Windows.Forms.Label lbl_UserName;
         private System.Windows.Forms.TextBox txt_email;
         private System.Windows.Forms.TextBox txt_country;
         private System.Windows.Forms.TextBox txt_nameSurname;
@@ -291,7 +300,6 @@ namespace PreLab1
         private System.Windows.Forms.TextBox txt_address;
         private System.Windows.Forms.TextBox txt_city;
         private System.Windows.Forms.TextBox txt_password;
-        private System.Windows.Forms.TextBox txt_userName;
         private System.Windows.Forms.Label lbl_email;
         private System.Windows.Forms.Label lbl_city;
         private System.Windows.Forms.Label lbl_country;
@@ -299,11 +307,5 @@ namespace PreLab1
         private System.Windows.Forms.Label lbl_phoneNumber;
         private System.Windows.Forms.Label lbl_nameSurname;
         private System.Windows.Forms.Label lbl_password;
-        private System.Windows.Forms.Label lbl_userName;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Button btnUpdate;
-        private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Button btnExit;
     }
 }

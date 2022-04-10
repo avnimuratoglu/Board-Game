@@ -8,6 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Xml;
+using System.Xml.Linq;
+using System.Security.Cryptography;
+
 
 namespace PreLab1
 {
@@ -18,7 +22,20 @@ namespace PreLab1
             InitializeComponent();
         }
 
-       
+        static string Encrypt(string value) // string to SHA256
+        {
+            StringBuilder builder = new StringBuilder();
+
+            using (SHA256 hash = SHA256Managed.Create())
+            {
+                Encoding encoding = Encoding.UTF8;
+                byte[] result = hash.ComputeHash(encoding.GetBytes(value));
+
+                foreach (Byte b in result)
+                    builder.Append(b.ToString("x2"));
+            }
+            return builder.ToString();
+        }
         private void txtUserName_TextChanged(object sender, EventArgs e)
         {
             if (txtUserName.TextLength == 0)
@@ -27,48 +44,38 @@ namespace PreLab1
                 BtnLogin.Enabled = true;
         }
 
-        public string nameAdmin = "admin", nameUser = "user";
-        public string passAdmin = "admin", passUser = "user";
-        public static bool flag = false; //user or admin
+        public static bool 
+            flag = false; //user or admin
         private void BtnLogin_Click(object sender, EventArgs e)
         {
-            string[] userEntry = new string[2];
-            userEntry[0] = txtUserName.Text;
-            userEntry[1] = txtPassword.Text;
-            try
-            {
-                FileStream fs = new FileStream(@"Entry.txt", FileMode.Open, FileAccess.ReadWrite);
-                StreamWriter entry = new StreamWriter(fs);
-                entry.WriteLine(txtUserName.Text);
-                entry.Close();
-            }
-            catch (Exception ex)
-            {
-                lbl_error2.Text = "No Records Found!";
-            }
-            if (userEntry[0] == nameUser && userEntry[1] == passUser )
-            {
 
-                //flag = false; //user
-                this.Hide();
-                MenuScreen menuScreen = new MenuScreen();
-                menuScreen.ShowDialog();
-                
-            }
-            if (userEntry[0] == nameAdmin && userEntry[1] == passAdmin)
-            {
+            XmlDocument xDoc = new XmlDocument();
+            xDoc.Load(@"users.xml");
 
-                this.Hide();
-                //flag = true;//admin
-                AdminPanel adminPanel = new AdminPanel();
-                adminPanel.ShowDialog();
-                
-            }
-            else
+            FileStream fs = new FileStream(@"Entry.txt", FileMode.Open, FileAccess.Write);
+            StreamWriter entry = new StreamWriter(fs);
+            entry.WriteLine(txtUserName.Text);
+            entry.Close();
+            
+            foreach (XmlNode node in xDoc.SelectNodes("//User"))
             {
-                txtPassword.Text = "";
-                lbl_error.Text = "Warning!";
-                lbl_error2.Text = "You entered wrong name or password!";
+                string userName = node.SelectSingleNode("UserName").InnerText;
+                string password = node.SelectSingleNode("Password").InnerText;
+
+                if(userName == txtUserName.Text && password == Encrypt(txtPassword.Text))
+                {
+                    this.Hide();
+                    if(userName == "admin")
+                    {
+                        AdminScreen adminScreen = new AdminScreen();
+                        adminScreen.Show();
+                    }
+                    else
+                    {
+                        MenuScreen menuScreen = new MenuScreen();
+                        menuScreen.Show();
+                    }
+                }
             }
         }
 
@@ -81,7 +88,6 @@ namespace PreLab1
 
         private void LoginScreen_Load(object sender, EventArgs e)
         {
-
             FileStream fs = new FileStream(@"Entry.txt", FileMode.Open, FileAccess.ReadWrite);
             StreamReader entry = new StreamReader(fs);
             txtUserName.Text = entry.ReadLine();
@@ -92,13 +98,13 @@ namespace PreLab1
         {
             this.Hide();
 
-            SignInScreen signinScreen = new SignInScreen();
+            SignupScreen signinScreen = new SignupScreen();
             signinScreen.ShowDialog();
         }
 
         private void chBox_password_CheckedChanged(object sender, EventArgs e)
         {
-
+            //show password
             if (chBox_password.Checked)
             {
                 txtPassword.PasswordChar = '\0';
@@ -111,6 +117,7 @@ namespace PreLab1
 
         private void txtPassword_KeyPress(object sender, KeyPressEventArgs e)
         {
+            //press enter key
             if (e.KeyChar == (char)Keys.Enter)
                 BtnLogin_Click(sender, e);
         }

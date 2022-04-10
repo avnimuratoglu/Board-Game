@@ -184,7 +184,7 @@ namespace PreLab1
             // Btn_Save
             // 
             this.Btn_Save.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.Btn_Save.Location = new System.Drawing.Point(467, 542);
+            this.Btn_Save.Location = new System.Drawing.Point(486, 517);
             this.Btn_Save.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Btn_Save.Name = "Btn_Save";
             this.Btn_Save.Size = new System.Drawing.Size(189, 54);
@@ -304,7 +304,7 @@ namespace PreLab1
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(687, 619);
+            this.ClientSize = new System.Drawing.Size(687, 596);
             this.Controls.Add(this.gBx_Color);
             this.Controls.Add(this.lbl_CustomErrorNum2);
             this.Controls.Add(this.lbl_CustomErrorNum1);

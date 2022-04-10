@@ -116,7 +116,7 @@ namespace PreLab1
             this.btnSıgnIn.Name = "btnSıgnIn";
             this.btnSıgnIn.Size = new System.Drawing.Size(157, 39);
             this.btnSıgnIn.TabIndex = 7;
-            this.btnSıgnIn.Text = "Sıgn In";
+            this.btnSıgnIn.Text = "Sıgn Up";
             this.btnSıgnIn.UseVisualStyleBackColor = true;
             this.btnSıgnIn.Click += new System.EventHandler(this.btnSıgnIn_Click);
             // 

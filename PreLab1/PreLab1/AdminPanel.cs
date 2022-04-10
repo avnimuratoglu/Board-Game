@@ -12,7 +12,6 @@ using System.Xml.Linq;
 using System.IO;
 using System.Security.Cryptography;
 
-
 namespace PreLab1
 {
     public partial class AdminPanel : Form
@@ -22,7 +21,7 @@ namespace PreLab1
             InitializeComponent();
         }
 
-        static string Encrypt (string value) // SHA256
+        static string Encrypt(string value) // string to SHA256
         {
             StringBuilder builder = new StringBuilder();
 
@@ -36,16 +35,15 @@ namespace PreLab1
             }
             return builder.ToString();
         }
-
-        void LoadFile()
+        public void LoadFile()
         {
             XmlDocument xDoc = new XmlDocument();
             DataSet ds = new DataSet();
             XmlReader xmlFile;
             xmlFile = XmlReader.Create(@"users.xml", new XmlReaderSettings());
             ds.ReadXml(xmlFile);
-            dataGridView_adminP.DataSource = ds.Tables[0];
-            dataGridView_adminP.Columns["Password"].Visible = false;
+            dataGridView1.DataSource = ds.Tables[0];
+            dataGridView1.Columns["Password"].Visible = false;
 
             xmlFile.Close();
 
@@ -56,40 +54,16 @@ namespace PreLab1
             LoadFile();
         }
 
-      
-         
-        private void btnAdd_Click(object sender, EventArgs e)
+        private void btn_AddUser_Click(object sender, EventArgs e)
         {
-            XDocument xDoc = XDocument.Load(@"users.xml");
-            xDoc.Element("Users").Add(
-                new XElement("User",
-                  new XElement("UserName", txt_userName.Text),
-                  new XElement("Password", Encrypt(txt_password.Text)),
-                  new XElement("NameSurname", txt_nameSurname.Text),
-                  new XElement("PhoneNumber", txt_phoneNumber.Text),
-                  new XElement("Address", txt_address.Text),
-                  new XElement("City", txt_city.Text),
-                  new XElement("Country", txt_country.Text),
-                  new XElement("E-Mail", txt_email.Text)));
 
-            xDoc.Save(@"users.xml");
-            LoadFile();
-
-            txt_userName.Text = "";
-            txt_password.Text = "";
-            txt_nameSurname.Text = "";
-            txt_phoneNumber.Text = "";
-            txt_address.Text = "";
-            txt_city.Text = "";
-            txt_country.Text = "";
-            txt_email.Text = "";
         }
 
-        private void btnUpdate_Click(object sender, EventArgs e)
+        private void btn_UpdateUser_Click(object sender, EventArgs e)
         {
             //girilen kullanici adina gore guncelleme.,,,
             XDocument xDoc = XDocument.Load(@"users.xml");
-            XElement node = xDoc.Element("Users").Elements("User").FirstOrDefault(x => x.Element("UserName").Value == txt_userName.Text);
+            XElement node = xDoc.Element("Users").Elements("User").FirstOrDefault(x => x.Element("UserName").Value == txt_UserName.Text);
 
             if (node != null)
             {
@@ -105,7 +79,37 @@ namespace PreLab1
                 LoadFile();
             }
 
-            txt_userName.Text = "";
+            txt_UserName.Text = "";
+            txt_password.Text = "";
+            txt_nameSurname.Text = "";
+            txt_phoneNumber.Text = "";
+            txt_address.Text = "";
+            txt_city.Text = "";
+            txt_country.Text = "";
+            txt_email.Text = "";
+
+        }
+
+        private void btn_AddUser_Click_1(object sender, EventArgs e)
+        {
+            AdminPanel adminPanel = new AdminPanel();
+
+            XDocument xDoc = XDocument.Load(@"users.xml");
+            xDoc.Element("Users").Add(
+                new XElement("User",
+                  new XElement("UserName", txt_UserName.Text),
+                  new XElement("Password", Encrypt(txt_password.Text)),
+                  new XElement("NameSurname", txt_nameSurname.Text),
+                  new XElement("PhoneNumber", txt_phoneNumber.Text),
+                  new XElement("Address", txt_address.Text),
+                  new XElement("City", txt_city.Text),
+                  new XElement("Country", txt_country.Text),
+                  new XElement("E-Mail", txt_email.Text)));
+
+            xDoc.Save(@"users.xml");
+            LoadFile();
+
+            txt_UserName.Text = "";
             txt_password.Text = "";
             txt_nameSurname.Text = "";
             txt_phoneNumber.Text = "";
@@ -115,24 +119,40 @@ namespace PreLab1
             txt_email.Text = "";
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
+        private void btn_DeleteUser_Click(object sender, EventArgs e)
         {
 
             //girilen kullanici adina gore silme
             XDocument xDoc = XDocument.Load(@"users.xml");
-            xDoc.Root.Elements().Where(x => x.Element("UserName").Value == txt_userName.Text).Remove();
+            xDoc.Root.Elements().Where(x => x.Element("UserName").Value == txt_UserName.Text).Remove();
             xDoc.Save(@"users.xml");
             LoadFile();
 
-            txt_userName.Text = "";
+            txt_UserName.Text = "";
         }
-        private void AdminPanel_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            this.Close();
 
-            LoginScreen loginScreen = new LoginScreen();
-            loginScreen.Show();
+        private void AdminPanel_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            AdminScreen adminScreen = new AdminScreen();
+            adminScreen.Show();
         }
-        
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                //gets a collection that contains all the rows
+                DataGridViewRow row = this.dataGridView1.Rows[e.RowIndex];
+                //populate the textbox from specific value of the coordinates of column and row.
+                txt_UserName.Text = row.Cells[0].Value.ToString();
+                //txt_password.Text = row.Cells[1].Value.ToString();
+                txt_nameSurname.Text = row.Cells[2].Value.ToString();
+                txt_phoneNumber.Text = row.Cells[3].Value.ToString();
+                txt_address.Text = row.Cells[4].Value.ToString();
+                txt_city.Text = row.Cells[5].Value.ToString();
+                txt_country.Text = row.Cells[6].Value.ToString();
+                txt_email.Text = row.Cells[7].Value.ToString();
+            }
+        }
     }
 }
