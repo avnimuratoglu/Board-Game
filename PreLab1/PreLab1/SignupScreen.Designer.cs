@@ -1,7 +1,7 @@
 ﻿
 namespace PreLab1
 {
-    partial class SignInScreen
+    partial class SignupScreen
     {
         /// <summary>
         /// Required designer variable.
@@ -178,7 +178,7 @@ namespace PreLab1
             // 
             // btn_saveUser
             // 
-            this.btn_saveUser.Location = new System.Drawing.Point(231, 325);
+            this.btn_saveUser.Location = new System.Drawing.Point(145, 307);
             this.btn_saveUser.Name = "btn_saveUser";
             this.btn_saveUser.Size = new System.Drawing.Size(145, 48);
             this.btn_saveUser.TabIndex = 9;
@@ -186,11 +186,11 @@ namespace PreLab1
             this.btn_saveUser.UseVisualStyleBackColor = true;
             this.btn_saveUser.Click += new System.EventHandler(this.btn_saveUser_Click);
             // 
-            // AdminScreen
+            // SignupScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(439, 396);
             this.Controls.Add(this.btn_saveUser);
             this.Controls.Add(this.txt_email);
             this.Controls.Add(this.txt_country);
@@ -208,10 +208,9 @@ namespace PreLab1
             this.Controls.Add(this.lbl_nameSurname);
             this.Controls.Add(this.lbl_password);
             this.Controls.Add(this.lbl_userName);
-            this.Name = "AdminScreen";
+            this.Name = "SignupScreen";
             this.Text = "AdminScreen";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AdminScreen_FormClosed);
-            this.Load += new System.EventHandler(this.AdminScreen_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

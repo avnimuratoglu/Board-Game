@@ -47,7 +47,11 @@ namespace PreLab1
             this.lbl_nameSurname = new System.Windows.Forms.Label();
             this.lbl_password = new System.Windows.Forms.Label();
             this.btnUpdate = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.lbl_Info = new System.Windows.Forms.Label();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.txtb_password = new System.Windows.Forms.TextBox();
+            this.lblPassword = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -156,7 +160,7 @@ namespace PreLab1
             // 
             this.lbl_city.AutoSize = true;
             this.lbl_city.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lbl_city.Location = new System.Drawing.Point(22, 188);
+            this.lbl_city.Location = new System.Drawing.Point(22, 193);
             this.lbl_city.Name = "lbl_city";
             this.lbl_city.Size = new System.Drawing.Size(48, 20);
             this.lbl_city.TabIndex = 21;
@@ -176,7 +180,7 @@ namespace PreLab1
             // 
             this.lbl_address.AutoSize = true;
             this.lbl_address.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lbl_address.Location = new System.Drawing.Point(22, 168);
+            this.lbl_address.Location = new System.Drawing.Point(22, 160);
             this.lbl_address.Name = "lbl_address";
             this.lbl_address.Size = new System.Drawing.Size(81, 20);
             this.lbl_address.TabIndex = 17;
@@ -186,7 +190,7 @@ namespace PreLab1
             // 
             this.lbl_phoneNumber.AutoSize = true;
             this.lbl_phoneNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lbl_phoneNumber.Location = new System.Drawing.Point(22, 132);
+            this.lbl_phoneNumber.Location = new System.Drawing.Point(22, 127);
             this.lbl_phoneNumber.Name = "lbl_phoneNumber";
             this.lbl_phoneNumber.Size = new System.Drawing.Size(130, 20);
             this.lbl_phoneNumber.TabIndex = 15;
@@ -196,7 +200,7 @@ namespace PreLab1
             // 
             this.lbl_nameSurname.AutoSize = true;
             this.lbl_nameSurname.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lbl_nameSurname.Location = new System.Drawing.Point(22, 87);
+            this.lbl_nameSurname.Location = new System.Drawing.Point(22, 94);
             this.lbl_nameSurname.Name = "lbl_nameSurname";
             this.lbl_nameSurname.Size = new System.Drawing.Size(146, 20);
             this.lbl_nameSurname.TabIndex = 13;
@@ -206,7 +210,7 @@ namespace PreLab1
             // 
             this.lbl_password.AutoSize = true;
             this.lbl_password.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lbl_password.Location = new System.Drawing.Point(22, 60);
+            this.lbl_password.Location = new System.Drawing.Point(22, 61);
             this.lbl_password.Name = "lbl_password";
             this.lbl_password.Size = new System.Drawing.Size(93, 20);
             this.lbl_password.TabIndex = 11;
@@ -214,28 +218,68 @@ namespace PreLab1
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(562, 28);
+            this.btnUpdate.Location = new System.Drawing.Point(566, 28);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(179, 43);
             this.btnUpdate.TabIndex = 30;
             this.btnUpdate.Text = "UPDATE";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
-            // button2
+            // lbl_Info
             // 
-            this.button2.Location = new System.Drawing.Point(562, 99);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(179, 43);
-            this.button2.TabIndex = 31;
-            this.button2.Text = "DELETE";
-            this.button2.UseVisualStyleBackColor = true;
+            this.lbl_Info.AutoSize = true;
+            this.lbl_Info.Location = new System.Drawing.Point(563, 160);
+            this.lbl_Info.Name = "lbl_Info";
+            this.lbl_Info.Size = new System.Drawing.Size(0, 17);
+            this.lbl_Info.TabIndex = 32;
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(566, 99);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(179, 43);
+            this.btnDelete.TabIndex = 31;
+            this.btnDelete.Text = "DELETE";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click_1);
+            // 
+            // btnExit
+            // 
+            this.btnExit.Location = new System.Drawing.Point(566, 373);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(179, 43);
+            this.btnExit.TabIndex = 33;
+            this.btnExit.Text = "EXIT";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // txtb_password
+            // 
+            this.txtb_password.Location = new System.Drawing.Point(566, 236);
+            this.txtb_password.Name = "txtb_password";
+            this.txtb_password.Size = new System.Drawing.Size(179, 22);
+            this.txtb_password.TabIndex = 34;
+            // 
+            // lblPassword
+            // 
+            this.lblPassword.AutoSize = true;
+            this.lblPassword.Location = new System.Drawing.Point(545, 208);
+            this.lblPassword.Name = "lblPassword";
+            this.lblPassword.Size = new System.Drawing.Size(220, 17);
+            this.lblPassword.TabIndex = 35;
+            this.lblPassword.Text = "Enter your password for changes!\r\n";
             // 
             // ProfileScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.lblPassword);
+            this.Controls.Add(this.txtb_password);
+            this.Controls.Add(this.btnExit);
+            this.Controls.Add(this.lbl_Info);
+            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.groupBox1);
             this.Name = "ProfileScreen";
@@ -244,6 +288,7 @@ namespace PreLab1
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -267,6 +312,10 @@ namespace PreLab1
         private System.Windows.Forms.Label lbl_nameSurname;
         private System.Windows.Forms.Label lbl_password;
         private System.Windows.Forms.Button btnUpdate;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label lbl_Info;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.TextBox txtb_password;
+        private System.Windows.Forms.Label lblPassword;
     }
 }

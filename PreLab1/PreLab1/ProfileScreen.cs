@@ -36,6 +36,17 @@ namespace PreLab1
             }
             return builder.ToString();
         }
+        public void LoadFile()
+        {
+            XmlDocument xDoc = new XmlDocument();
+            DataSet ds = new DataSet();
+            XmlReader xmlFile;
+            xmlFile = XmlReader.Create(@"users.xml", new XmlReaderSettings());
+            ds.ReadXml(xmlFile);
+
+            xmlFile.Close();
+
+        }
         private void ProfileScreen_Load(object sender, EventArgs e)
         {
             XmlDocument xDoc = new XmlDocument();
@@ -60,6 +71,76 @@ namespace PreLab1
                     txt_email.Text = node["E-Mail"].InnerText;
                 }
             }
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            XDocument xDoc = XDocument.Load(@"users.xml");
+            XElement node = xDoc.Element("Users").Elements("User").FirstOrDefault(x => x.Element("UserName").Value == txt_UserName.Text);
+
+
+            if(Encrypt(txtb_password.Text) == node.Element("Password").Value)
+            {
+                if (node != null)
+                {
+                    node.SetElementValue("Password", Encrypt(txt_password.Text));
+                    node.SetElementValue("NameSurname", txt_nameSurname.Text);
+                    node.SetElementValue("PhoneNumber", txt_phoneNumber.Text);
+                    node.SetElementValue("Address", txt_address.Text);
+                    node.SetElementValue("City", txt_city.Text);
+                    node.SetElementValue("Country", txt_country.Text);
+                    node.SetElementValue("E-Mail", txt_email.Text);
+                }
+
+                lbl_Info.Text = "UPDATE SUCCESSFUL !!!";
+                txt_password.Text = "";
+                xDoc.Save(@"users.xml");
+                LoadFile();
+            }
+            else
+            {
+                txt_password.Text = "";
+                txtb_password.Text = "";
+            }
+        }
+
+        private void btnDelete_Click_1(object sender, EventArgs e)
+        {
+            FileStream fs = new FileStream(@"Entry.txt", FileMode.Open, FileAccess.ReadWrite);
+            StreamWriter entry = new StreamWriter(fs);
+
+            LoginScreen loginScreen = new LoginScreen();
+
+            XDocument xDoc = XDocument.Load(@"users.xml");
+            XElement node = xDoc.Element("Users").Elements("User").FirstOrDefault(x => x.Element("UserName").Value == txt_UserName.Text);
+
+            if (Encrypt(txtb_password.Text) == node.Element("Password").Value)
+            {
+                xDoc.Root.Elements().Where(x => x.Element("UserName").Value == txt_UserName.Text).Remove();
+                lbl_Info.Text = "DELETION SUCCESSFUL !!!";
+                txt_password.Text = "";
+                txt_UserName.Text = "";
+                xDoc.Save(@"users.xml");
+                LoadFile();
+
+                entry.WriteLine("");
+                entry.Close();
+                this.Close();
+                loginScreen.Show();
+
+            }
+            else
+            {
+                txt_password.Text = "";
+                txtb_password.Text = "";
+            }
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            MenuScreen menuScreen = new MenuScreen();
+            menuScreen.Show();
         }
     }
 }

@@ -36,7 +36,7 @@ namespace PreLab1
             //    write.WriteLine("Round");
 
             //fs.Close();
-            //this.Close();
+           
 
             //if(LoginScreen.flag == false ) //USER
                 //SHAPE
@@ -93,65 +93,9 @@ namespace PreLab1
                 SettingsUser.Default.User_colorRed = cBx_Red.Checked;
 
              SettingsUser.Default.Save();
-            //else //ADMIN
-            //{
-            //    //SHAPE
-            //    if (cBx_Square.Checked)
-            //        SettingsAdmin.Default.Admin_CheckSquare = cBx_Square.Checked;
-            //    else
-            //        SettingsAdmin.Default.Admin_CheckSquare = cBx_Square.Checked;
-            //    if (cBx_Triangle.Checked)
-            //        SettingsAdmin.Default.Admin_CheckTriangle = cBx_Triangle.Checked;
-            //    else
-            //        SettingsAdmin.Default.Admin_CheckTriangle = cBx_Triangle.Checked;
-            //    if (cBx_Round.Checked)
-            //        SettingsAdmin.Default.Admin_CheckRound = cBx_Round.Checked;
-            //    else
-            //        SettingsAdmin.Default.Admin_CheckRound = cBx_Round.Checked;
 
-
-            //    //DIFFICULTY
-            //    if (rBtn_Easy.Checked)
-            //        SettingsAdmin.Default.Admin_rBtnEasy = rBtn_Easy.Checked;
-            //    else
-            //        SettingsAdmin.Default.Admin_rBtnEasy = rBtn_Easy.Checked;
-            //    if (rBtn_Normal.Checked)
-            //        SettingsAdmin.Default.Admin_rBtnNormal = rBtn_Normal.Checked;
-            //    else
-            //        SettingsAdmin.Default.Admin_rBtnNormal = rBtn_Normal.Checked;
-            //    if (rBtn_Hard.Checked)
-            //        SettingsAdmin.Default.Admin_rBtnHard = rBtn_Hard.Checked;
-            //    else
-            //        SettingsAdmin.Default.Admin_rBtnHard = rBtn_Hard.Checked;
-
-            //    //DIFFICULTY CUSTOM
-            //    if (rBtn_Custom.Checked)
-            //    {
-            //        SettingsAdmin.Default.Admin_rBtnCustom = rBtn_Custom.Checked;
-            //        SettingsAdmin.Default.Admin_diffCustomNum1 = Convert.ToInt32(txtNum1.Text);
-            //        SettingsAdmin.Default.Admin_diffCustomNum2 = Convert.ToInt32(txtNum2.Text);
-            //    }
-            //    else
-            //        SettingsAdmin.Default.Admin_rBtnCustom = rBtn_Custom.Checked;
-
-
-            //    //COLOR
-            //    if (cBx_Yellow.Checked)
-            //        SettingsAdmin.Default.Admin_colorYellow = cBx_Yellow.Checked;
-            //    else
-            //        SettingsAdmin.Default.Admin_colorYellow = cBx_Yellow.Checked;
-            //    if (cBx_Blue.Checked)
-            //        SettingsAdmin.Default.Admin_colorBlue = cBx_Blue.Checked;
-            //    else
-            //        SettingsAdmin.Default.Admin_colorBlue = cBx_Blue.Checked;
-            //    if (cBx_Red.Checked)
-            //        SettingsAdmin.Default.Admin_colorRed = cBx_Red.Checked;
-            //    else
-            //        SettingsAdmin.Default.Admin_colorRed = cBx_Red.Checked;
-
-            //    SettingsAdmin.Default.Save();
-            //}
-
+            this.Close();
+           
         }
 
         private void rBtn_Custom_CheckedChanged(object sender, EventArgs e)
