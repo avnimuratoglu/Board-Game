@@ -62,5 +62,12 @@ namespace PreLab1
             ProfileScreen profileScreen = new ProfileScreen();
             profileScreen.ShowDialog();
         }
+
+        private void btnAboutUs_Click(object sender, EventArgs e)
+        {
+            FormAboutUs formAboutUs = new
+            FormAboutUs();
+            formAboutUs.ShowDialog();
+        }
     }
 }
