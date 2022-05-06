@@ -35,6 +35,7 @@ namespace PreLab1
             this.Btn_Play = new System.Windows.Forms.Button();
             this.lbl_Menu = new System.Windows.Forms.Label();
             this.Btn_Profile = new System.Windows.Forms.Button();
+            this.btnAboutUs = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Btn_Logout
@@ -109,11 +110,22 @@ namespace PreLab1
             this.Btn_Profile.UseVisualStyleBackColor = true;
             this.Btn_Profile.Click += new System.EventHandler(this.Btn_Profile_Click);
             // 
+            // btnAboutUs
+            // 
+            this.btnAboutUs.Location = new System.Drawing.Point(526, 450);
+            this.btnAboutUs.Name = "btnAboutUs";
+            this.btnAboutUs.Size = new System.Drawing.Size(105, 50);
+            this.btnAboutUs.TabIndex = 8;
+            this.btnAboutUs.Text = "AboutUs";
+            this.btnAboutUs.UseVisualStyleBackColor = true;
+            this.btnAboutUs.Click += new System.EventHandler(this.btnAboutUs_Click);
+            // 
             // MenuScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(643, 529);
+            this.Controls.Add(this.btnAboutUs);
             this.Controls.Add(this.Btn_Profile);
             this.Controls.Add(this.lbl_Menu);
             this.Controls.Add(this.Btn_Play);
@@ -139,5 +151,6 @@ namespace PreLab1
         private System.Windows.Forms.Button Btn_Play;
         private System.Windows.Forms.Label lbl_Menu;
         private System.Windows.Forms.Button Btn_Profile;
+        private System.Windows.Forms.Button btnAboutUs;
     }
 }

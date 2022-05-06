@@ -117,3 +117,8 @@ C:\Users\Sevval Kolaca\Desktop\OOP2_Lab\OOP_2_Lab\PreLab1\PreLab1\obj\Debug\PreL
 C:\Users\Sevval Kolaca\Desktop\OOP2_Lab\OOP_2_Lab\PreLab1\PreLab1\obj\Debug\PreLab1.AdminScreen.resources
 C:\Users\Sevval Kolaca\Desktop\OOP2_Lab\OOP_2_Lab\PreLab1\PreLab1\obj\Debug\PreLab1.ProfileScreen.resources
 C:\Users\Sevval Kolaca\Desktop\OOP2_Lab\OOP_2_Lab\PreLab1\PreLab1\obj\Debug\PreLab1.SignupScreen.resources
+C:\Users\Hp\Documents\GitHub\OOP_2_Lab\PreLab1\PreLab1\obj\Debug\PreLab1.AdminPanel.resources
+C:\Users\Hp\Documents\GitHub\OOP_2_Lab\PreLab1\PreLab1\obj\Debug\PreLab1.AdminScreen.resources
+C:\Users\Hp\Documents\GitHub\OOP_2_Lab\PreLab1\PreLab1\obj\Debug\PreLab1.FormAboutUs.resources
+C:\Users\Hp\Documents\GitHub\OOP_2_Lab\PreLab1\PreLab1\obj\Debug\PreLab1.ProfileScreen.resources
+C:\Users\Hp\Documents\GitHub\OOP_2_Lab\PreLab1\PreLab1\obj\Debug\PreLab1.SignupScreen.resources
