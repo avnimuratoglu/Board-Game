@@ -18,6 +18,7 @@ namespace PreLab1
         public SettingScreen()
         {
             InitializeComponent();
+
         }
 
         MenuScreen menuScreen = new MenuScreen();
@@ -25,6 +26,7 @@ namespace PreLab1
 
         private void Btn_Save_Click(object sender, EventArgs e)
         {
+          
             //FileStream fs = new FileStream(@"Entry.txt", FileMode.Append, FileAccess.Write);
             //StreamWriter write = new StreamWriter(fs);
 
@@ -92,10 +94,21 @@ namespace PreLab1
             else
                 SettingsUser.Default.User_colorRed = cBx_Red.Checked;
 
-             SettingsUser.Default.Save();
+
+            int countShape = 0, countColor = 0;
+            if (cBx_Square.Checked) countShape++;
+            if (cBx_Triangle.Checked) countShape++;
+            if (cBx_Round.Checked) countShape++;
+            if (cBx_Yellow.Checked) countColor++;
+            if (cBx_Blue.Checked) countColor++;
+            if (cBx_Red.Checked) countColor++;
+
+            if (countShape == 1 && countColor == 1)
+                MessageBox.Show("Please make more choices!", "Warning Window!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else
+                SettingsUser.Default.Save();
 
             this.Close();
-           
         }
 
         private void rBtn_Custom_CheckedChanged(object sender, EventArgs e)
