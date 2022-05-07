@@ -154,5 +154,10 @@ namespace PreLab1
                 txt_email.Text = row.Cells[7].Value.ToString();
             }
         }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }
