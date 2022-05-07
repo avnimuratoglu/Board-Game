@@ -35,12 +35,13 @@ namespace PreLab1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.ClientSize = new System.Drawing.Size(602, 553);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "GameScreen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Game Screen";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.GameScreen_FormClosed);
+            this.Load += new System.EventHandler(this.GameScreen_Load);
             this.ResumeLayout(false);
 
         }
