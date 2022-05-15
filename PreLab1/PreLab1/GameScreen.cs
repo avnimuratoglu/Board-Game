@@ -107,7 +107,8 @@ namespace PreLab1
         {
             Button btn = (Button)sender;
             int counterOfButtons = 0;
-            
+            int point = 0; //toplanan puan  easy-1 normal-3 hard-5 custom-2
+
 
             if (clickTemp == false && btn.BackColor != Color.AliceBlue)
             {
@@ -176,8 +177,10 @@ namespace PreLab1
                     //allButtons = a * b;
                 }
 
+
                 //BUTON PATLATMA 
                 bool pop = false; //patlama kontrol 
+               
                 for (int i = 0; i < a; i++)
                 {
                     if (buttonArray[coordLast.x, i].BackColor == btn.BackColor && buttonArray[coordLast.x, i].Text == btn.Text)
@@ -196,14 +199,35 @@ namespace PreLab1
                                 if (counterOfButtons == 0)
                                     break;
                             }
+
+                            //puanlama
+                            if (SettingsUser.Default.User_rBtnEasy)
+                            {
+                                point += 1;
+                                lblScore.Text = point.ToString();
+
+                            }
+                            else if (SettingsUser.Default.User_rBtnNormal)
+                            {
+                                point += 3;
+                                lblScore.Text = point.ToString();
+                            }
+                            else if (SettingsUser.Default.User_rBtnHard)
+                            {
+                                point += 5;
+                                lblScore.Text = point.ToString();
+                            }
+                            else if (SettingsUser.Default.User_rBtnCustom)
+                            {
+                                point += 2;
+                                lblScore.Text = point.ToString();
+                            }
                         }
                     }
                     else
                         counterOfButtons = 0;
 
                 }
-
-               
                 for (int j = 0; j < b; j++)
                 {
                     if (buttonArray[j, coordLast.y].BackColor == btn.BackColor && buttonArray[j, coordLast.y].Text == btn.Text)
@@ -220,6 +244,29 @@ namespace PreLab1
                                 counterOfButtons--;
                                 if (counterOfButtons == 0)
                                     break;
+                            }
+                            //puanlama
+                            if (SettingsUser.Default.User_rBtnEasy)
+                            {
+                                point += 1;
+                                lblScore.Text = point.ToString();
+
+                            }
+
+                            else if (SettingsUser.Default.User_rBtnNormal)
+                            {
+                                point += 3;
+                                lblScore.Text = point.ToString();
+                            }
+                            else if (SettingsUser.Default.User_rBtnHard)
+                            {
+                                point += 5;
+                                lblScore.Text = point.ToString();
+                            }
+                            else if (SettingsUser.Default.User_rBtnCustom)
+                            {
+                                point += 2;
+                                lblScore.Text = point.ToString();
                             }
                         }
                     }
@@ -330,6 +377,8 @@ namespace PreLab1
             //Color[] colors = new Color[4] { Color.Blue, Color.Yellow, Color.Red, Color.AliceBlue };
             return arrShapes[randomShape.Next(0, arrShapes.Length)];
         }
+
+       
         private void GameScreen_Load(object sender, EventArgs e)
         {
 
@@ -344,8 +393,9 @@ namespace PreLab1
 
             if (SettingsUser.Default.User_rBtnEasy)//Easy Board
             {
-                Size = new Size(768, 790); //en boy
+                Size = new Size(930, 790); //en boy
                 buttonArray = new Button[15, 15];
+                panel.Location = new Point(15 * 50, 50);
                 int top = 0;
                 int left = 0;
 
@@ -393,7 +443,9 @@ namespace PreLab1
             }
             if (SettingsUser.Default.User_rBtnNormal) // Normal board
             {
+                Size = new Size(630, 500); //en boy
                 buttonArray = new Button[9, 9];
+                panel.Location = new Point(9 * 50, 50);
                 int top = 0;
                 int left = 0;
                 for (int i = 0; i < 9; i++)
@@ -439,8 +491,9 @@ namespace PreLab1
             {
                 //int allButtons = 36;
                 //int selectedButtons = 0;
-                Size = new Size(318, 343); //en boy
+                Size = new Size(450, 343); //en boy
                 buttonArray = new Button[6, 6];
+                panel.Location = new Point(6 * 50, 50);
                 int top = 0;
                 int left = 0;
                 for (int i = 0; i < 6; i++)
@@ -503,6 +556,7 @@ namespace PreLab1
             {
                 Size = new Size(650, 650); //en boy
                 buttonArray = new Button[SettingsUser.Default.User_diffCustomNum1, SettingsUser.Default.User_diffCustomNum2];
+                panel.Location = new Point(( SettingsUser.Default.User_diffCustomNum1) * 50, 50);
                 int top = 0;
                 int left = 0;
                 for (int i = 0; i < SettingsUser.Default.User_diffCustomNum1; i++)
