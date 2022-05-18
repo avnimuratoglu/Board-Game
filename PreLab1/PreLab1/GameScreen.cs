@@ -35,7 +35,8 @@ namespace PreLab1
         private Button[,] buttonArray;
         private int[,] coordinate;
         private Coordinate coordFirst, coordLast;
-      
+        private int point = 0; //toplanan puan  easy-1 normal-3 hard-5 custom-2
+        private bool pop = false; //patlama kontrol 
 
         Coordinate findIndex(Button btn)
         {
@@ -107,12 +108,11 @@ namespace PreLab1
         {
             Button btn = (Button)sender;
             int counterOfButtons = 0;
-            int point = 0; //toplanan puan  easy-1 normal-3 hard-5 custom-2
+
 
 
             if (clickTemp == false && btn.BackColor != Color.AliceBlue)
             {
-               
                 colorTemp = btn.BackColor;
                 textTemp = btn.Text;
                 buttonTemp = btn;
@@ -130,27 +130,27 @@ namespace PreLab1
                 {
                     btn.BackColor = Color.Pink;
                 }
-               
+
 
                 //MessageBox.Show("Buradan");
                 clickTemp = true;
 
             }
-            else if(clickTemp == true && btn.BackColor == Color.AliceBlue)
+            else if (clickTemp == true && btn.BackColor == Color.AliceBlue)
             {
                 btn.BackColor = colorTemp;
                 btn.Text = textTemp;
                 buttonTemp.BackColor = Color.AliceBlue;
                 buttonTemp.Text = "";
-                coordLast= findIndex(btn);
-               
+                coordLast = findIndex(btn);
+
 
                 //MessageBox.Show("Buraya");
                 clickTemp = false;
 
                 int a = 0, b = 0;
                 int lastElement;
-                
+
                 //tablo boyutu icin
                 if (SettingsUser.Default.User_rBtnEasy)
                 {
@@ -158,7 +158,7 @@ namespace PreLab1
                     b = 15;
                     //allButtons = a * b;
                 }
-                else if(SettingsUser.Default.User_rBtnNormal)
+                else if (SettingsUser.Default.User_rBtnNormal)
                 {
                     a = 9;
                     b = 9;
@@ -170,7 +170,7 @@ namespace PreLab1
                     b = 6;
                     //allButtons = a * b;
                 }
-                else if(SettingsUser.Default.User_rBtnCustom)
+                else if (SettingsUser.Default.User_rBtnCustom)
                 {
                     a = SettingsUser.Default.User_diffCustomNum1;
                     b = SettingsUser.Default.User_diffCustomNum2;
@@ -179,8 +179,6 @@ namespace PreLab1
 
 
                 //BUTON PATLATMA 
-                bool pop = false; //patlama kontrol 
-               
                 for (int i = 0; i < a; i++)
                 {
                     if (buttonArray[coordLast.x, i].BackColor == btn.BackColor && buttonArray[coordLast.x, i].Text == btn.Text)
@@ -199,34 +197,10 @@ namespace PreLab1
                                 if (counterOfButtons == 0)
                                     break;
                             }
-
-                            //puanlama
-                            if (SettingsUser.Default.User_rBtnEasy)
-                            {
-                                point += 1;
-                                lblScore.Text = point.ToString();
-
-                            }
-                            else if (SettingsUser.Default.User_rBtnNormal)
-                            {
-                                point += 3;
-                                lblScore.Text = point.ToString();
-                            }
-                            else if (SettingsUser.Default.User_rBtnHard)
-                            {
-                                point += 5;
-                                lblScore.Text = point.ToString();
-                            }
-                            else if (SettingsUser.Default.User_rBtnCustom)
-                            {
-                                point += 2;
-                                lblScore.Text = point.ToString();
-                            }
                         }
                     }
                     else
                         counterOfButtons = 0;
-
                 }
                 for (int j = 0; j < b; j++)
                 {
@@ -245,36 +219,38 @@ namespace PreLab1
                                 if (counterOfButtons == 0)
                                     break;
                             }
-                            //puanlama
-                            if (SettingsUser.Default.User_rBtnEasy)
-                            {
-                                point += 1;
-                                lblScore.Text = point.ToString();
-
-                            }
-
-                            else if (SettingsUser.Default.User_rBtnNormal)
-                            {
-                                point += 3;
-                                lblScore.Text = point.ToString();
-                            }
-                            else if (SettingsUser.Default.User_rBtnHard)
-                            {
-                                point += 5;
-                                lblScore.Text = point.ToString();
-                            }
-                            else if (SettingsUser.Default.User_rBtnCustom)
-                            {
-                                point += 2;
-                                lblScore.Text = point.ToString();
-                            }
                         }
                     }
                     else
                         counterOfButtons = 0;
                 }
 
-                if(pop != true)
+                if (pop == true)
+                {
+                    //puanlama
+                    if (SettingsUser.Default.User_rBtnEasy)
+                    {
+                        point += 1;
+                        lblScore.Text = point.ToString();
+                    }
+                    else if (SettingsUser.Default.User_rBtnNormal)
+                    {
+                        point += 3;
+                        lblScore.Text = point.ToString();
+                    }
+                    else if (SettingsUser.Default.User_rBtnHard)
+                    {
+                        point += 5;
+                        lblScore.Text = point.ToString();
+                    }
+                    else if (SettingsUser.Default.User_rBtnCustom)
+                    {
+                        point += 2;
+                        lblScore.Text = point.ToString();
+                    }
+                    pop = false;
+                }
+                else if (pop != true)
                 {
                     int control = 0;
                     while (control != 3)
@@ -286,6 +262,7 @@ namespace PreLab1
                             buttonArray[c1.x, c1.y].Text = GetRandomShape();
                             buttonArray[c1.x, c1.y].BackColor = GetRandomColor();
                         }
+
                         //Coordinate c2 = RandomCoordinate(a, b);
                         //Coordinate c3 = RandomCoordinate(a, b);
 
@@ -293,11 +270,89 @@ namespace PreLab1
                         //buttonArray[c2.x, c2.y].BackColor = GetRandomColor();
                         //buttonArray[c3.x, c3.y].Text = GetRandomShape();
                         //buttonArray[c3.x, c3.y].BackColor = GetRandomColor();
-
+                         
                     }
-                }            
+                }
+
             }
         }
+        int R = 4;
+        int C = 4;
+        public class Matrix
+        {
+            public int row;
+            public int col;
+            public int dist;
+
+            public Matrix(int _row, int _col, int _dist)
+            {
+                row = _row;
+                col = _col;
+                dist = _dist;
+            }
+        };
+        int minDistance(Button[,] buttonArray)
+        {
+            var source = new Matrix(0, 0, 0);
+
+            bool[,] visited = new bool[R, C];
+            for (int i = 0; i < R; i++)
+            {
+                for (int j = 0; j < C; j++)
+                {
+                    if (buttonArray[i, j].BackColor == Color.AliceBlue) 
+                        visited[i, j] = true;
+                    else
+                        visited[i, j] = false;
+
+                    if (coordFirst.x == i && coordFirst.y == j) 
+                    {
+                        source.row = i;
+                        source.col = j;
+                    }    
+                }
+            }
+
+            Queue<Matrix> matrix = new Queue<Matrix>(); //sıra FIFO
+            matrix.Enqueue(source);//sona eleman ekler 
+            visited[source.row, source.col] = true;
+            while(matrix.Count != 0)
+            {
+                Matrix matrix2 = matrix.Dequeue(); //ilk elemanı döndürür ve siler.
+
+                //varılacak noktayı bulduğunda
+                if (coordLast.x == matrix2.row && coordLast.y == matrix2.col) 
+                    return matrix2.dist;
+
+                //up
+                if (matrix2.row - 1 >= 0 && visited[matrix2.row - 1, matrix2.col] == false) 
+                {
+                    matrix.Enqueue(new Matrix(matrix2.row - 1, matrix2.col, matrix2.dist + 1));
+                    visited[matrix2.row - 1, matrix2.col] = true;
+                }
+                //down
+                if (matrix2.row + 1 < R && visited[matrix2.row - 1, matrix2.col] == false) 
+                {
+                    matrix.Enqueue(new Matrix(matrix2.row + 1, matrix2.col, matrix2.dist + 1));
+                    visited[matrix2.row - 1, matrix2.col] = true;
+                }
+                //left
+                if (matrix2.col - 1 >= 0 && visited[matrix2.row, matrix2.col - 1] == false) 
+                {
+                    matrix.Enqueue(new Matrix(matrix2.row, matrix2.col - 1, matrix2.dist + 1));
+                    visited[matrix2.row, matrix2.col - 1] = true;
+                }
+                //right
+                if (matrix2.col + 1 < C && visited[matrix2.row, matrix2.col + 1] == false)
+                {
+                    matrix.Enqueue(new Matrix (matrix2.row, matrix2.col + 1, matrix2.dist + 1));
+                    visited[matrix2.row, matrix2.col + 1] = true;
+                }
+            }
+            return -1;
+        }
+
+      
 
         public struct Coordinate
         {
@@ -581,7 +636,7 @@ namespace PreLab1
                 while (controlcust != 3)
                 {
 
-                    Coordinate c1 = RandomCoordinate(9, 9);
+                    Coordinate c1 = RandomCoordinate(SettingsUser.Default.User_diffCustomNum1, SettingsUser.Default.User_diffCustomNum2);
                     if (buttonArray[c1.x, c1.y].BackColor == Color.AliceBlue)
                     {
                         controlcust++;
