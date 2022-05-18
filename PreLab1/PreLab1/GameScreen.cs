@@ -35,7 +35,8 @@ namespace PreLab1
         private Button[,] buttonArray;
         private int[,] coordinate;
         private Coordinate coordFirst, coordLast;
-      
+        private int point = 0; //toplanan puan  easy-1 normal-3 hard-5 custom-2
+        private bool pop = false; //patlama kontrol 
 
         Coordinate findIndex(Button btn)
         {
@@ -107,12 +108,12 @@ namespace PreLab1
         {
             Button btn = (Button)sender;
             int counterOfButtons = 0;
-            int point = 0; //toplanan puan  easy-1 normal-3 hard-5 custom-2
+
 
 
             if (clickTemp == false && btn.BackColor != Color.AliceBlue)
             {
-               
+
                 colorTemp = btn.BackColor;
                 textTemp = btn.Text;
                 buttonTemp = btn;
@@ -130,27 +131,27 @@ namespace PreLab1
                 {
                     btn.BackColor = Color.Pink;
                 }
-               
+
 
                 //MessageBox.Show("Buradan");
                 clickTemp = true;
 
             }
-            else if(clickTemp == true && btn.BackColor == Color.AliceBlue)
+            else if (clickTemp == true && btn.BackColor == Color.AliceBlue)
             {
                 btn.BackColor = colorTemp;
                 btn.Text = textTemp;
                 buttonTemp.BackColor = Color.AliceBlue;
                 buttonTemp.Text = "";
-                coordLast= findIndex(btn);
-               
+                coordLast = findIndex(btn);
+
 
                 //MessageBox.Show("Buraya");
                 clickTemp = false;
 
                 int a = 0, b = 0;
                 int lastElement;
-                
+
                 //tablo boyutu icin
                 if (SettingsUser.Default.User_rBtnEasy)
                 {
@@ -158,7 +159,7 @@ namespace PreLab1
                     b = 15;
                     //allButtons = a * b;
                 }
-                else if(SettingsUser.Default.User_rBtnNormal)
+                else if (SettingsUser.Default.User_rBtnNormal)
                 {
                     a = 9;
                     b = 9;
@@ -170,7 +171,7 @@ namespace PreLab1
                     b = 6;
                     //allButtons = a * b;
                 }
-                else if(SettingsUser.Default.User_rBtnCustom)
+                else if (SettingsUser.Default.User_rBtnCustom)
                 {
                     a = SettingsUser.Default.User_diffCustomNum1;
                     b = SettingsUser.Default.User_diffCustomNum2;
@@ -179,8 +180,6 @@ namespace PreLab1
 
 
                 //BUTON PATLATMA 
-                bool pop = false; //patlama kontrol 
-               
                 for (int i = 0; i < a; i++)
                 {
                     if (buttonArray[coordLast.x, i].BackColor == btn.BackColor && buttonArray[coordLast.x, i].Text == btn.Text)
@@ -199,34 +198,10 @@ namespace PreLab1
                                 if (counterOfButtons == 0)
                                     break;
                             }
-
-                            //puanlama
-                            if (SettingsUser.Default.User_rBtnEasy)
-                            {
-                                point += 1;
-                                lblScore.Text = point.ToString();
-
-                            }
-                            else if (SettingsUser.Default.User_rBtnNormal)
-                            {
-                                point += 3;
-                                lblScore.Text = point.ToString();
-                            }
-                            else if (SettingsUser.Default.User_rBtnHard)
-                            {
-                                point += 5;
-                                lblScore.Text = point.ToString();
-                            }
-                            else if (SettingsUser.Default.User_rBtnCustom)
-                            {
-                                point += 2;
-                                lblScore.Text = point.ToString();
-                            }
                         }
                     }
                     else
                         counterOfButtons = 0;
-
                 }
                 for (int j = 0; j < b; j++)
                 {
@@ -245,36 +220,38 @@ namespace PreLab1
                                 if (counterOfButtons == 0)
                                     break;
                             }
-                            //puanlama
-                            if (SettingsUser.Default.User_rBtnEasy)
-                            {
-                                point += 1;
-                                lblScore.Text = point.ToString();
-
-                            }
-
-                            else if (SettingsUser.Default.User_rBtnNormal)
-                            {
-                                point += 3;
-                                lblScore.Text = point.ToString();
-                            }
-                            else if (SettingsUser.Default.User_rBtnHard)
-                            {
-                                point += 5;
-                                lblScore.Text = point.ToString();
-                            }
-                            else if (SettingsUser.Default.User_rBtnCustom)
-                            {
-                                point += 2;
-                                lblScore.Text = point.ToString();
-                            }
                         }
                     }
                     else
                         counterOfButtons = 0;
                 }
 
-                if(pop != true)
+                if (pop == true)
+                {
+                    //puanlama
+                    if (SettingsUser.Default.User_rBtnEasy)
+                    {
+                        point += 1;
+                        lblScore.Text = point.ToString();
+                    }
+                    else if (SettingsUser.Default.User_rBtnNormal)
+                    {
+                        point += 3;
+                        lblScore.Text = point.ToString();
+                    }
+                    else if (SettingsUser.Default.User_rBtnHard)
+                    {
+                        point += 5;
+                        lblScore.Text = point.ToString();
+                    }
+                    else if (SettingsUser.Default.User_rBtnCustom)
+                    {
+                        point += 2;
+                        lblScore.Text = point.ToString();
+                    }
+                    pop = false;
+                }
+                else if (pop != true)
                 {
                     int control = 0;
                     while (control != 3)
@@ -286,6 +263,7 @@ namespace PreLab1
                             buttonArray[c1.x, c1.y].Text = GetRandomShape();
                             buttonArray[c1.x, c1.y].BackColor = GetRandomColor();
                         }
+
                         //Coordinate c2 = RandomCoordinate(a, b);
                         //Coordinate c3 = RandomCoordinate(a, b);
 
@@ -295,7 +273,8 @@ namespace PreLab1
                         //buttonArray[c3.x, c3.y].BackColor = GetRandomColor();
 
                     }
-                }            
+                }
+
             }
         }
 
@@ -581,7 +560,7 @@ namespace PreLab1
                 while (controlcust != 3)
                 {
 
-                    Coordinate c1 = RandomCoordinate(9, 9);
+                    Coordinate c1 = RandomCoordinate(SettingsUser.Default.User_diffCustomNum1, SettingsUser.Default.User_diffCustomNum2);
                     if (buttonArray[c1.x, c1.y].BackColor == Color.AliceBlue)
                     {
                         controlcust++;

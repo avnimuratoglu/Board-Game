@@ -49,7 +49,7 @@ namespace PreLab1
             // 
             this.panel.Controls.Add(this.lblScore);
             this.panel.Controls.Add(this.lblScoreTag);
-            this.panel.Location = new System.Drawing.Point(456, 44);
+            this.panel.Location = new System.Drawing.Point(473, 33);
             this.panel.Name = "panel";
             this.panel.Size = new System.Drawing.Size(163, 164);
             this.panel.TabIndex = 2;
