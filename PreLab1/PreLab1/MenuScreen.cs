@@ -51,11 +51,6 @@ namespace PreLab1
             Application.Exit();
         }
 
-        private void MenuScreen_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void Btn_Profile_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -68,6 +63,12 @@ namespace PreLab1
             FormAboutUs formAboutUs = new
             FormAboutUs();
             formAboutUs.ShowDialog();
+        }
+
+        private void btn_help_Click(object sender, EventArgs e)
+        {
+            HelpScreen helpScreen = new HelpScreen();
+            helpScreen.ShowDialog();
         }
     }
 }
