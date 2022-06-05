@@ -32,6 +32,8 @@ namespace PreLab1
             this.lblScoreTag = new System.Windows.Forms.Label();
             this.panel = new System.Windows.Forms.Panel();
             this.lblScore = new System.Windows.Forms.Label();
+            this.lbl_maxScore = new System.Windows.Forms.Label();
+            this.lbl_maxScoreInfo = new System.Windows.Forms.Label();
             this.panel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -39,7 +41,7 @@ namespace PreLab1
             // 
             this.lblScoreTag.AutoSize = true;
             this.lblScoreTag.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblScoreTag.Location = new System.Drawing.Point(54, 42);
+            this.lblScoreTag.Location = new System.Drawing.Point(54, 175);
             this.lblScoreTag.Name = "lblScoreTag";
             this.lblScoreTag.Size = new System.Drawing.Size(61, 17);
             this.lblScoreTag.TabIndex = 0;
@@ -47,20 +49,40 @@ namespace PreLab1
             // 
             // panel
             // 
+            this.panel.Controls.Add(this.lbl_maxScoreInfo);
+            this.panel.Controls.Add(this.lbl_maxScore);
             this.panel.Controls.Add(this.lblScore);
             this.panel.Controls.Add(this.lblScoreTag);
             this.panel.Location = new System.Drawing.Point(473, 33);
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(163, 164);
+            this.panel.Size = new System.Drawing.Size(163, 358);
             this.panel.TabIndex = 2;
             // 
             // lblScore
             // 
             this.lblScore.AutoSize = true;
-            this.lblScore.Location = new System.Drawing.Point(69, 92);
+            this.lblScore.Location = new System.Drawing.Point(69, 225);
             this.lblScore.Name = "lblScore";
             this.lblScore.Size = new System.Drawing.Size(0, 17);
             this.lblScore.TabIndex = 1;
+            // 
+            // lbl_maxScore
+            // 
+            this.lbl_maxScore.AutoSize = true;
+            this.lbl_maxScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_maxScore.Location = new System.Drawing.Point(37, 37);
+            this.lbl_maxScore.Name = "lbl_maxScore";
+            this.lbl_maxScore.Size = new System.Drawing.Size(98, 17);
+            this.lbl_maxScore.TabIndex = 2;
+            this.lbl_maxScore.Text = "MAX SCORE";
+            // 
+            // lbl_maxScoreInfo
+            // 
+            this.lbl_maxScoreInfo.AutoSize = true;
+            this.lbl_maxScoreInfo.Location = new System.Drawing.Point(54, 88);
+            this.lbl_maxScoreInfo.Name = "lbl_maxScoreInfo";
+            this.lbl_maxScoreInfo.Size = new System.Drawing.Size(0, 17);
+            this.lbl_maxScoreInfo.TabIndex = 3;
             // 
             // GameScreen
             // 
@@ -85,5 +107,7 @@ namespace PreLab1
         private System.Windows.Forms.Label lblScoreTag;
         private System.Windows.Forms.Panel panel;
         private System.Windows.Forms.Label lblScore;
+        private System.Windows.Forms.Label lbl_maxScore;
+        private System.Windows.Forms.Label lbl_maxScoreInfo;
     }
 }

@@ -11,6 +11,10 @@ using System.IO;
 using System.Xml;
 using System.Xml.Linq;
 using System.Security.Cryptography;
+using System.Data.Sql;
+using System.Data.SqlClient;
+using System.Data;
+using PreLab1.SqlVariables;
 
 
 namespace PreLab1
@@ -22,6 +26,7 @@ namespace PreLab1
             InitializeComponent();
         }
 
+        public static string UserName;
         static string Encrypt(string value) // string to SHA256
         {
             StringBuilder builder = new StringBuilder();
@@ -44,41 +49,41 @@ namespace PreLab1
                 BtnLogin.Enabled = true;
         }
 
-        public static bool 
-            flag = false; //user or admin
         private void BtnLogin_Click(object sender, EventArgs e)
         {
+            //XmlDocument xDoc = new XmlDocument();
+            //xDoc.Load(@"users.xml");
 
-            XmlDocument xDoc = new XmlDocument();
-            xDoc.Load(@"users.xml");
+            //FileStream fs = new FileStream(@"Entry.txt", FileMode.Open, FileAccess.Write);
+            //StreamWriter entry = new StreamWriter(fs);
+            //entry.WriteLine(txtUserName.Text);
+            //entry.Close();
 
-            FileStream fs = new FileStream(@"Entry.txt", FileMode.Open, FileAccess.Write);
-            StreamWriter entry = new StreamWriter(fs);
-            entry.WriteLine(txtUserName.Text);
-            entry.Close();
-            
-            foreach (XmlNode node in xDoc.SelectNodes("//User"))
+            //foreach (XmlNode node in xDoc.SelectNodes("//User"))
+            //{
+            //    string userName = node.SelectSingleNode("UserName").InnerText;
+            //    string password = node.SelectSingleNode("Password").InnerText;
+            //}
+
+            SqlCommand commandLogin = new SqlCommand("Select password from Users_Table where Username=@userName", SQL.connectionUsers);
+            SQL.CheckConnection(SQL.connectionUsers);
+            commandLogin.Parameters.AddWithValue("@userName", txtUserName.Text);
+
+            this.Hide();
+
+            if (txtUserName.Text == "admin")
             {
-                string userName = node.SelectSingleNode("UserName").InnerText;
-                string password = node.SelectSingleNode("Password").InnerText;
-
-                if(userName == txtUserName.Text && password == Encrypt(txtPassword.Text))
-                {
-                    this.Hide();
-                    if(userName == "admin")
-                    {
-                        AdminScreen adminScreen = new AdminScreen();
-                        adminScreen.Show();
-                    }
-                    else
-                    {
-                        MenuScreen menuScreen = new MenuScreen();
-                        menuScreen.Show();
-                    }
-                }
+                AdminScreen adminScreen = new AdminScreen();
+                adminScreen.Show();
             }
-        }
+            else
+            {
+                MenuScreen menuScreen = new MenuScreen();
+                menuScreen.Show();
+            }
 
+            UserName = txtUserName.Text;
+        }
 
         private void txtUserName_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -106,13 +111,9 @@ namespace PreLab1
         {
             //show password
             if (chBox_password.Checked)
-            {
                 txtPassword.PasswordChar = '\0';
-            }
             else
-            {
                 txtPassword.PasswordChar = '*';
-            }
         }
 
         private void txtPassword_KeyPress(object sender, KeyPressEventArgs e)
