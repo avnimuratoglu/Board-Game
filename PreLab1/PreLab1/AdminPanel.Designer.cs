@@ -64,12 +64,12 @@ namespace PreLab1
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(842, 265);
             this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
             // btn_AddUser
             // 
             this.btn_AddUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btn_AddUser.Location = new System.Drawing.Point(583, 316);
+            this.btn_AddUser.Location = new System.Drawing.Point(583, 331);
             this.btn_AddUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_AddUser.Name = "btn_AddUser";
             this.btn_AddUser.Size = new System.Drawing.Size(189, 50);
@@ -81,7 +81,7 @@ namespace PreLab1
             // btn_UpdateUser
             // 
             this.btn_UpdateUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btn_UpdateUser.Location = new System.Drawing.Point(583, 429);
+            this.btn_UpdateUser.Location = new System.Drawing.Point(583, 422);
             this.btn_UpdateUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_UpdateUser.Name = "btn_UpdateUser";
             this.btn_UpdateUser.Size = new System.Drawing.Size(189, 50);
@@ -93,7 +93,7 @@ namespace PreLab1
             // btn_DeleteUser
             // 
             this.btn_DeleteUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btn_DeleteUser.Location = new System.Drawing.Point(583, 542);
+            this.btn_DeleteUser.Location = new System.Drawing.Point(583, 513);
             this.btn_DeleteUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_DeleteUser.Name = "btn_DeleteUser";
             this.btn_DeleteUser.Size = new System.Drawing.Size(189, 50);
@@ -126,7 +126,6 @@ namespace PreLab1
             this.groupBox1.Size = new System.Drawing.Size(461, 327);
             this.groupBox1.TabIndex = 28;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // txt_UserName
             // 

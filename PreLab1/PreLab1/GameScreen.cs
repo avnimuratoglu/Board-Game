@@ -8,6 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Collections;
+using System.Reflection;
+using System.Media;
+using System.Drawing;
+using System.Data.SqlClient;
+using System.Data;
+using PreLab1.SqlVariables;
 
 namespace PreLab1
 {
@@ -38,6 +44,148 @@ namespace PreLab1
         private int point = 0; //toplanan puan  easy-1 normal-3 hard-5 custom-2
         private bool pop = false; //patlama kontrol 
 
+
+        void countAllButtons(int row, int column)
+        {
+            //Button btn = new Button();
+            int numberOfAliceBllueButons = 0;
+
+            foreach (Button buttons in buttonArray)
+            {
+                if (buttons.BackColor == Color.AliceBlue)
+                    numberOfAliceBllueButons++;
+            }
+            if (numberOfAliceBllueButons < 3)
+            {
+                MessageBox.Show("THE GAME IS OVER!", "GAME OVER", MessageBoxButtons.OK);
+                this.Close();
+            }
+
+        }
+
+        void randomizeButton(int row, int column)
+        {
+            int control = 0;
+            while (control != 3)
+            {
+                Coordinate c1 = RandomCoordinate(row, column);
+                if (buttonArray[c1.x, c1.y].BackColor == Color.AliceBlue)
+                {
+                    control++;
+                    buttonArray[c1.x, c1.y].Text = GetRandomShape();
+                    buttonArray[c1.x, c1.y].BackColor = GetRandomColor();
+                }
+
+                //Coordinate c2 = RandomCoordinate(a, b);
+                //Coordinate c3 = RandomCoordinate(a, b);
+
+                //buttonArray[c2.x, c2.y].Text = GetRandomShape();
+                //buttonArray[c2.x, c2.y].BackColor = GetRandomColor();
+                //buttonArray[c3.x, c3.y].Text = GetRandomShape();
+                //buttonArray[c3.x, c3.y].BackColor = GetRandomColor();
+            }
+        }
+
+        void popButtons(int row, int column, Button btn)
+        {
+
+            int counterOfButtons = 0;
+
+            for (int i = 0; i < row; i++)
+            {
+                if (buttonArray[coordLast.x, i].BackColor == btn.BackColor && buttonArray[coordLast.x, i].Text == btn.Text)
+                {
+                    counterOfButtons++;
+
+                    if (counterOfButtons >= 5)
+                    {
+                        pop = true;
+                        for (int start = i; start >= 0; start--)
+                        {
+                            buttonArray[coordLast.x, start].BackColor = Color.AliceBlue;
+                            buttonArray[coordLast.x, start].Text = "";
+                            counterOfButtons--;
+                            if (counterOfButtons == 0)
+                                break;
+                        }
+                    }
+                }
+                else
+                    counterOfButtons = 0;
+            }
+
+            for (int j = 0; j < column; j++)
+            {
+                if (buttonArray[j, coordLast.y].BackColor == btn.BackColor && buttonArray[j, coordLast.y].Text == btn.Text)
+                {
+                    counterOfButtons++;
+                    if (counterOfButtons >= 5)
+                    {
+                        pop = true;
+                        for (int start = j; start >= 0; start--)
+                        {
+                            buttonArray[start, coordLast.y].BackColor = Color.AliceBlue;
+                            buttonArray[start, coordLast.y].Text = "";
+                            counterOfButtons--;
+                            if (counterOfButtons == 0)
+                                break;
+                        }
+                    }
+                }
+                else
+                    counterOfButtons = 0;
+            }
+        }
+        void SqlUpdateScore(int point)
+        {
+            SQL.CheckConnection(SQL.connectionUsers);
+
+            int score = 0;
+            try
+            {
+                SqlCommand commandScore = new SqlCommand("Select Score from Users_Table where UserName=@username", SQL.connectionUsers);
+                commandScore.Parameters.AddWithValue("@username", LoginScreen.UserName);
+                score = (int)commandScore.ExecuteScalar();
+            }
+            catch (Exception e)
+            {
+                score = 0;
+            }
+
+            if (score < point)
+            {
+                SqlCommand commandUpdate = new SqlCommand("Update Users_Table set Score=@score where UserName=@username", SQL.connectionUsers);
+
+                commandUpdate.Parameters.AddWithValue("@username", LoginScreen.UserName);
+                commandUpdate.Parameters.AddWithValue("@score", point);
+                commandUpdate.ExecuteNonQuery();
+            }
+        }
+
+        int findMaxScore()
+        {
+            SQL.CheckConnection(SQL.connectionUsers);
+            SqlCommand commandMax = new SqlCommand("Select Max(Score) from Users_Table", SQL.connectionUsers);
+            int maxScore = (int)commandMax.ExecuteScalar();
+
+            return maxScore;
+        }
+
+        void findPath(string fileName)
+        {
+            string exeFilePath = System.Reflection.Assembly.GetExecutingAssembly().Location;
+            string workFilePath = System.IO.Path.GetDirectoryName(exeFilePath);
+            string filePath = System.IO.Path.Combine(workFilePath, fileName);
+        }
+        private void playSound()
+        {
+            //string fileName = "Run.wav";
+            //findPath(fileName);
+            SoundPlayer play = new SoundPlayer(@"C:\Users\Sevval Kolaca\Desktop\oop lab\sql son\sonsonyedek\PreLab1\PreLab1\Run.wav");
+            //play.Load();
+            play.Play();
+        }
+
         Coordinate findIndex(Button btn)
         {
             
@@ -49,9 +197,7 @@ namespace PreLab1
                     for (int j = 0; j < 15; j++)
                     {
                         if (buttonArray[i,j].Location == btn.Location)
-                        {
                             return new Coordinate(i, j);
-                        }
                     }
                 }
             }
@@ -63,9 +209,7 @@ namespace PreLab1
                     for (int j = 0; j < 9; j++)
                     {
                         if (buttonArray[i, j].Location == btn.Location)
-                        {
                             return new Coordinate(i, j);
-                        }
                     }
                 }
             }
@@ -77,9 +221,7 @@ namespace PreLab1
                     for (int j = 0; j < 6; j++)
                     {
                         if (buttonArray[i, j].Location == btn.Location)
-                        {
                             return new Coordinate(i, j);
-                        }
                     }
                 }
             }
@@ -95,21 +237,17 @@ namespace PreLab1
                     for (int j = 0; j < b; j++)
                     {
                         if (buttonArray[i, j].Location == btn.Location)
-                        {
                             return new Coordinate(i, j);
-                        }
                     }
                 }
             }
             return new Coordinate(-1, -1);
         }
 
-        void game(object sender, EventArgs e)
+        public void game(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
-            int counterOfButtons = 0;
-
-
+            //int counterOfButtons = 0;
 
             if (clickTemp == false && btn.BackColor != Color.AliceBlue)
             {
@@ -119,18 +257,13 @@ namespace PreLab1
                 coordFirst = findIndex(btn);
 
                 if (btn.BackColor == Color.Blue)
-                {
-                    btn.BackColor = Color.Pink;
-                }
-                if (btn.BackColor == Color.Red)
-                {
-                    btn.BackColor = Color.Pink;
-                }
-                if (btn.BackColor == Color.Yellow)
-                {
-                    btn.BackColor = Color.Pink;
-                }
+                    btn.BackColor = Color.SlateBlue;
 
+                if (btn.BackColor == Color.Red)
+                    btn.BackColor = Color.Salmon;
+
+                if (btn.BackColor == Color.Yellow)
+                    btn.BackColor = Color.Khaki;
 
                 //MessageBox.Show("Buradan");
                 clickTemp = true;
@@ -144,12 +277,10 @@ namespace PreLab1
                 buttonTemp.Text = "";
                 coordLast = findIndex(btn);
 
-
                 //MessageBox.Show("Buraya");
                 clickTemp = false;
 
                 int a = 0, b = 0;
-                int lastElement;
 
                 //tablo boyutu icin
                 if (SettingsUser.Default.User_rBtnEasy)
@@ -177,53 +308,8 @@ namespace PreLab1
                     //allButtons = a * b;
                 }
 
-
                 //BUTON PATLATMA 
-                for (int i = 0; i < a; i++)
-                {
-                    if (buttonArray[coordLast.x, i].BackColor == btn.BackColor && buttonArray[coordLast.x, i].Text == btn.Text)
-                    {
-                        counterOfButtons++;
-
-                        if (counterOfButtons >= 5)
-                        {
-                            pop = true;
-                            lastElement = i;
-                            for (int start = i; start >= 0; start--)
-                            {
-                                buttonArray[coordLast.x, start].BackColor = Color.AliceBlue;
-                                buttonArray[coordLast.x, start].Text = "";
-                                counterOfButtons--;
-                                if (counterOfButtons == 0)
-                                    break;
-                            }
-                        }
-                    }
-                    else
-                        counterOfButtons = 0;
-                }
-                for (int j = 0; j < b; j++)
-                {
-                    if (buttonArray[j, coordLast.y].BackColor == btn.BackColor && buttonArray[j, coordLast.y].Text == btn.Text)
-                    {
-                        counterOfButtons++;
-                        if (counterOfButtons >= 5)
-                        {
-                            pop = true;
-                            lastElement = j;
-                            for (int start = j; start >= 0; start--)
-                            {
-                                buttonArray[start, coordLast.y].BackColor = Color.AliceBlue;
-                                buttonArray[start, coordLast.y].Text = "";
-                                counterOfButtons--;
-                                if (counterOfButtons == 0)
-                                    break;
-                            }
-                        }
-                    }
-                    else
-                        counterOfButtons = 0;
-                }
+                popButtons(a, b, btn);
 
                 if (pop == true)
                 {
@@ -231,51 +317,48 @@ namespace PreLab1
                     if (SettingsUser.Default.User_rBtnEasy)
                     {
                         point += 1;
+                        playSound();
+                        SqlUpdateScore(point);
+                        lbl_maxScoreInfo.Text = findMaxScore().ToString();
                         lblScore.Text = point.ToString();
                     }
                     else if (SettingsUser.Default.User_rBtnNormal)
                     {
                         point += 3;
+                        playSound();
+                        SqlUpdateScore(point);
+                        lbl_maxScoreInfo.Text = findMaxScore().ToString();
                         lblScore.Text = point.ToString();
                     }
                     else if (SettingsUser.Default.User_rBtnHard)
                     {
                         point += 5;
+                        playSound();
+                        SqlUpdateScore(point);
+                        lbl_maxScoreInfo.Text = findMaxScore().ToString();
                         lblScore.Text = point.ToString();
                     }
                     else if (SettingsUser.Default.User_rBtnCustom)
                     {
                         point += 2;
+                        playSound();
+                        SqlUpdateScore(point);
+                        lbl_maxScoreInfo.Text = findMaxScore().ToString();
                         lblScore.Text = point.ToString();
                     }
                     pop = false;
                 }
-                else if (pop != true)
+                else
                 {
-                    int control = 0;
-                    while (control != 3)
-                    {
-                        Coordinate c1 = RandomCoordinate(a, b);
-                        if (buttonArray[c1.x, c1.y].BackColor == Color.AliceBlue)
-                        {
-                            control++;
-                            buttonArray[c1.x, c1.y].Text = GetRandomShape();
-                            buttonArray[c1.x, c1.y].BackColor = GetRandomColor();
-                        }
-
-                        //Coordinate c2 = RandomCoordinate(a, b);
-                        //Coordinate c3 = RandomCoordinate(a, b);
-
-                        //buttonArray[c2.x, c2.y].Text = GetRandomShape();
-                        //buttonArray[c2.x, c2.y].BackColor = GetRandomColor();
-                        //buttonArray[c3.x, c3.y].Text = GetRandomShape();
-                        //buttonArray[c3.x, c3.y].BackColor = GetRandomColor();
-                         
-                    }
+                    randomizeButton(a, b);
+                    popButtons(a, b, btn);
                 }
 
+                //popButtons(a, b, btn);
+                countAllButtons(a, b); ////////////////////// end game control //////////////////////
             }
         }
+
         int R = 4;
         int C = 4;
         public class Matrix
@@ -352,8 +435,6 @@ namespace PreLab1
             return -1;
         }
 
-      
-
         public struct Coordinate
         {
             public int x;
@@ -417,7 +498,6 @@ namespace PreLab1
         }
         private string GetRandomShape()
         {
-
             ArrayList shapes = new ArrayList();
 
             if (SettingsUser.Default.User_CheckSquare)
@@ -433,7 +513,6 @@ namespace PreLab1
             return arrShapes[randomShape.Next(0, arrShapes.Length)];
         }
 
-       
         private void GameScreen_Load(object sender, EventArgs e)
         {
 
@@ -446,6 +525,9 @@ namespace PreLab1
             //if (SettingsUser.Default.User_CheckRound)
             //    shapes.Add("◯");
 
+
+            lbl_maxScoreInfo.Text = findMaxScore().ToString();
+
             if (SettingsUser.Default.User_rBtnEasy)//Easy Board
             {
                 Size = new Size(930, 790); //en boy
@@ -454,7 +536,6 @@ namespace PreLab1
                 int top = 0;
                 int left = 0;
 
-                
                 for (int i = 0; i < 15; i++)
                 {
                     for (int j = 0; j < 15; j++)
@@ -474,17 +555,9 @@ namespace PreLab1
                     left = 0;
                 }
 
-                int controleasy = 0;
-                while (controleasy != 3)
-                {
-                    Coordinate c1 = RandomCoordinate(15, 15);
-                    if (buttonArray[c1.x, c1.y].BackColor == Color.AliceBlue)
-                    {
-                        controleasy++;
-                        buttonArray[c1.x, c1.y].Text = GetRandomShape();
-                        buttonArray[c1.x, c1.y].BackColor = GetRandomColor();
-                    }
-                }
+                randomizeButton(15,15);
+
+                ////////////////////////////////////////////////////////////
                 //Coordinate c1 = RandomCoordinate(15, 15);
                 //Coordinate c2 = RandomCoordinate(15, 15);
                 //Coordinate c3 = RandomCoordinate(15, 15);
@@ -494,7 +567,7 @@ namespace PreLab1
                 //buttonArray[c2.x, c2.y].BackColor = GetRandomColor();
                 //buttonArray[c3.x, c3.y].Text = GetRandomShape();
                 //buttonArray[c3.x, c3.y].BackColor = GetRandomColor();
-              
+
             }
             if (SettingsUser.Default.User_rBtnNormal) // Normal board
             {
@@ -520,18 +593,9 @@ namespace PreLab1
                     top += 50;
                     left = 0;
                 }
-                int controlnorm = 0;
-                while (controlnorm != 3)
-                {
 
-                    Coordinate c1 = RandomCoordinate(9, 9);
-                    if (buttonArray[c1.x, c1.y].BackColor == Color.AliceBlue)
-                    {
-                        controlnorm++;
-                        buttonArray[c1.x, c1.y].Text = GetRandomShape();
-                        buttonArray[c1.x, c1.y].BackColor = GetRandomColor();
-                    }
-                }
+                randomizeButton(9, 9);
+
                 //Coordinate c1 = RandomCoordinate(9, 9);
                 //Coordinate c2 = RandomCoordinate(9, 9);
                 //Coordinate c3 = RandomCoordinate(9, 9);
@@ -544,13 +608,12 @@ namespace PreLab1
             }
             if (SettingsUser.Default.User_rBtnHard) //Hard Board
             {
-                //int allButtons = 36;
-                //int selectedButtons = 0;
                 Size = new Size(450, 343); //en boy
                 buttonArray = new Button[6, 6];
                 panel.Location = new Point(6 * 50, 50);
                 int top = 0;
                 int left = 0;
+
                 for (int i = 0; i < 6; i++)
                 {
                     for (int j = 0; j < 6; j++)
@@ -562,6 +625,7 @@ namespace PreLab1
                         buttonArray[i, j].Left = left;
                         buttonArray[i, j].Top = top;
                         buttonArray[i, j].Click += new EventHandler(game);
+                      
                         this.Controls.Add(buttonArray[i, j]);
                         left += 50;
                     }
@@ -569,33 +633,7 @@ namespace PreLab1
                     left = 0;
                 }
 
-                int controlhard = 0;
-                while (controlhard != 3)
-                {
-
-                    Coordinate c1 = RandomCoordinate(6, 6);
-                    if (buttonArray[c1.x, c1.y].BackColor == Color.AliceBlue)
-                    {
-                        controlhard++;
-                        buttonArray[c1.x, c1.y].Text = GetRandomShape();
-                        buttonArray[c1.x, c1.y].BackColor = GetRandomColor();
-                    }
-                    //for (int i = 0; i < 6; i++)
-                    //{
-                    //    for (int j = 0; j < 6; j++)
-                    //    {
-                    //        if (buttonArray[i, j].BackColor != Color.AliceBlue)
-                    //        {
-                    //            selectedButtons++;
-                    //        }
-                    //    }
-                    //}
-                    //if (selectedButtons == allButtons)
-                    //{
-                    //    MessageBox.Show("GAME OVER");
-                    //}
-                }
-                
+                randomizeButton(6, 6);
 
                 //    Coordinate c1 = RandomCoordinate(6, 6);
                 //Coordinate c2 = RandomCoordinate(6, 6);
@@ -632,18 +670,7 @@ namespace PreLab1
                     left = 0;
                 }
 
-                int controlcust= 0;
-                while (controlcust != 3)
-                {
-
-                    Coordinate c1 = RandomCoordinate(SettingsUser.Default.User_diffCustomNum1, SettingsUser.Default.User_diffCustomNum2);
-                    if (buttonArray[c1.x, c1.y].BackColor == Color.AliceBlue)
-                    {
-                        controlcust++;
-                        buttonArray[c1.x, c1.y].Text = GetRandomShape();
-                        buttonArray[c1.x, c1.y].BackColor = GetRandomColor();
-                    }
-                }
+                randomizeButton(SettingsUser.Default.User_diffCustomNum1, SettingsUser.Default.User_diffCustomNum2);
 
                 //Coordinate c1 = RandomCoordinate(SettingsUser.Default.User_diffCustomNum1, SettingsUser.Default.User_diffCustomNum2);
                 //Coordinate c2 = RandomCoordinate(SettingsUser.Default.User_diffCustomNum1, SettingsUser.Default.User_diffCustomNum2);
@@ -655,8 +682,6 @@ namespace PreLab1
                 //buttonArray[c3.x, c3.y].Text = GetRandomShape();
                 //buttonArray[c3.x, c3.y].BackColor = GetRandomColor();
             }
-
         }
-
     }
 }
