@@ -60,7 +60,6 @@ namespace PreLab1
                 MessageBox.Show("THE GAME IS OVER!", "GAME OVER", MessageBoxButtons.OK);
                 this.Close();
             }
-
         }
 
         void randomizeButton(int row, int column)
@@ -160,13 +159,18 @@ namespace PreLab1
                 commandUpdate.Parameters.AddWithValue("@score", point);
                 commandUpdate.ExecuteNonQuery();
             }
+
+            SQL.connectionUsers.Close();
         }
 
         int findMaxScore()
         {
+            SQL.connectionUsers.Close();
+
             SQL.CheckConnection(SQL.connectionUsers);
             SqlCommand commandMax = new SqlCommand("Select Max(Score) from Users_Table", SQL.connectionUsers);
             int maxScore = (int)commandMax.ExecuteScalar();
+
 
             return maxScore;
         }
@@ -462,6 +466,8 @@ namespace PreLab1
 
         private void GameScreen_FormClosed(object sender, FormClosedEventArgs e)
         {
+            SQL.connectionUsers.Close();
+
             menuScreen.Close();
             loginScreen.Close();
             Application.Exit();

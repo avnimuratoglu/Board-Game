@@ -50,13 +50,18 @@ namespace PreLab1
             this.lbl_phoneNumber = new System.Windows.Forms.Label();
             this.lbl_nameSurname = new System.Windows.Forms.Label();
             this.lbl_password = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.rb_minToMax = new System.Windows.Forms.RadioButton();
+            this.rb_maxToMin = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.AliceBlue;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 12);
             this.dataGridView1.Name = "dataGridView1";
@@ -68,38 +73,44 @@ namespace PreLab1
             // 
             // btn_AddUser
             // 
-            this.btn_AddUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btn_AddUser.Location = new System.Drawing.Point(583, 331);
+            this.btn_AddUser.BackColor = System.Drawing.Color.AliceBlue;
+            this.btn_AddUser.Font = new System.Drawing.Font("Castellar", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_AddUser.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.btn_AddUser.Location = new System.Drawing.Point(585, 303);
             this.btn_AddUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_AddUser.Name = "btn_AddUser";
             this.btn_AddUser.Size = new System.Drawing.Size(189, 50);
             this.btn_AddUser.TabIndex = 12;
             this.btn_AddUser.Text = "ADD USER";
-            this.btn_AddUser.UseVisualStyleBackColor = true;
+            this.btn_AddUser.UseVisualStyleBackColor = false;
             this.btn_AddUser.Click += new System.EventHandler(this.btn_AddUser_Click_1);
             // 
             // btn_UpdateUser
             // 
-            this.btn_UpdateUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btn_UpdateUser.Location = new System.Drawing.Point(583, 422);
+            this.btn_UpdateUser.BackColor = System.Drawing.Color.AliceBlue;
+            this.btn_UpdateUser.Font = new System.Drawing.Font("Castellar", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_UpdateUser.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.btn_UpdateUser.Location = new System.Drawing.Point(585, 377);
             this.btn_UpdateUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_UpdateUser.Name = "btn_UpdateUser";
             this.btn_UpdateUser.Size = new System.Drawing.Size(189, 50);
             this.btn_UpdateUser.TabIndex = 14;
             this.btn_UpdateUser.Text = "UPDATE USER";
-            this.btn_UpdateUser.UseVisualStyleBackColor = true;
+            this.btn_UpdateUser.UseVisualStyleBackColor = false;
             this.btn_UpdateUser.Click += new System.EventHandler(this.btn_UpdateUser_Click);
             // 
             // btn_DeleteUser
             // 
-            this.btn_DeleteUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btn_DeleteUser.Location = new System.Drawing.Point(583, 513);
+            this.btn_DeleteUser.BackColor = System.Drawing.Color.AliceBlue;
+            this.btn_DeleteUser.Font = new System.Drawing.Font("Castellar", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_DeleteUser.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.btn_DeleteUser.Location = new System.Drawing.Point(585, 451);
             this.btn_DeleteUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_DeleteUser.Name = "btn_DeleteUser";
             this.btn_DeleteUser.Size = new System.Drawing.Size(189, 50);
             this.btn_DeleteUser.TabIndex = 15;
             this.btn_DeleteUser.Text = "DELETE USER";
-            this.btn_DeleteUser.UseVisualStyleBackColor = true;
+            this.btn_DeleteUser.UseVisualStyleBackColor = false;
             this.btn_DeleteUser.Click += new System.EventHandler(this.btn_DeleteUser_Click);
             // 
             // groupBox1
@@ -129,145 +140,208 @@ namespace PreLab1
             // 
             // txt_UserName
             // 
+            this.txt_UserName.Font = new System.Drawing.Font("Papyrus", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_UserName.ForeColor = System.Drawing.Color.MidnightBlue;
             this.txt_UserName.Location = new System.Drawing.Point(239, 48);
             this.txt_UserName.Name = "txt_UserName";
-            this.txt_UserName.Size = new System.Drawing.Size(198, 22);
+            this.txt_UserName.Size = new System.Drawing.Size(198, 28);
             this.txt_UserName.TabIndex = 26;
             // 
             // lbl_UserName
             // 
             this.lbl_UserName.AutoSize = true;
-            this.lbl_UserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lbl_UserName.Location = new System.Drawing.Point(29, 50);
+            this.lbl_UserName.Font = new System.Drawing.Font("Castellar", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_UserName.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.lbl_UserName.Location = new System.Drawing.Point(23, 49);
             this.lbl_UserName.Name = "lbl_UserName";
-            this.lbl_UserName.Size = new System.Drawing.Size(99, 20);
+            this.lbl_UserName.Size = new System.Drawing.Size(123, 21);
             this.lbl_UserName.TabIndex = 25;
             this.lbl_UserName.Text = "User Name:";
             // 
             // txt_email
             // 
+            this.txt_email.Font = new System.Drawing.Font("Papyrus", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_email.ForeColor = System.Drawing.Color.MidnightBlue;
             this.txt_email.Location = new System.Drawing.Point(239, 259);
             this.txt_email.Name = "txt_email";
-            this.txt_email.Size = new System.Drawing.Size(198, 22);
+            this.txt_email.Size = new System.Drawing.Size(198, 28);
             this.txt_email.TabIndex = 24;
             // 
             // txt_country
             // 
+            this.txt_country.Font = new System.Drawing.Font("Papyrus", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_country.ForeColor = System.Drawing.Color.MidnightBlue;
             this.txt_country.Location = new System.Drawing.Point(239, 229);
             this.txt_country.Name = "txt_country";
-            this.txt_country.Size = new System.Drawing.Size(198, 22);
+            this.txt_country.Size = new System.Drawing.Size(198, 28);
             this.txt_country.TabIndex = 22;
             // 
             // txt_nameSurname
             // 
+            this.txt_nameSurname.Font = new System.Drawing.Font("Papyrus", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_nameSurname.ForeColor = System.Drawing.Color.MidnightBlue;
             this.txt_nameSurname.Location = new System.Drawing.Point(239, 109);
             this.txt_nameSurname.Name = "txt_nameSurname";
-            this.txt_nameSurname.Size = new System.Drawing.Size(198, 22);
+            this.txt_nameSurname.Size = new System.Drawing.Size(198, 28);
             this.txt_nameSurname.TabIndex = 14;
             // 
             // txt_phoneNumber
             // 
+            this.txt_phoneNumber.Font = new System.Drawing.Font("Papyrus", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_phoneNumber.ForeColor = System.Drawing.Color.MidnightBlue;
             this.txt_phoneNumber.Location = new System.Drawing.Point(239, 139);
             this.txt_phoneNumber.Name = "txt_phoneNumber";
-            this.txt_phoneNumber.Size = new System.Drawing.Size(198, 22);
+            this.txt_phoneNumber.Size = new System.Drawing.Size(198, 28);
             this.txt_phoneNumber.TabIndex = 16;
             // 
             // txt_address
             // 
+            this.txt_address.Font = new System.Drawing.Font("Papyrus", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_address.ForeColor = System.Drawing.Color.MidnightBlue;
             this.txt_address.Location = new System.Drawing.Point(239, 169);
             this.txt_address.Name = "txt_address";
-            this.txt_address.Size = new System.Drawing.Size(198, 22);
+            this.txt_address.Size = new System.Drawing.Size(198, 28);
             this.txt_address.TabIndex = 18;
             // 
             // txt_city
             // 
+            this.txt_city.Font = new System.Drawing.Font("Papyrus", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_city.ForeColor = System.Drawing.Color.MidnightBlue;
             this.txt_city.Location = new System.Drawing.Point(239, 199);
             this.txt_city.Name = "txt_city";
-            this.txt_city.Size = new System.Drawing.Size(198, 22);
+            this.txt_city.Size = new System.Drawing.Size(198, 28);
             this.txt_city.TabIndex = 20;
             // 
             // txt_password
             // 
+            this.txt_password.Font = new System.Drawing.Font("Papyrus", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_password.ForeColor = System.Drawing.Color.MidnightBlue;
             this.txt_password.Location = new System.Drawing.Point(239, 79);
             this.txt_password.Name = "txt_password";
-            this.txt_password.Size = new System.Drawing.Size(198, 22);
+            this.txt_password.Size = new System.Drawing.Size(198, 28);
             this.txt_password.TabIndex = 12;
             // 
             // lbl_email
             // 
             this.lbl_email.AutoSize = true;
-            this.lbl_email.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lbl_email.Location = new System.Drawing.Point(29, 260);
+            this.lbl_email.Font = new System.Drawing.Font("Castellar", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_email.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.lbl_email.Location = new System.Drawing.Point(23, 259);
             this.lbl_email.Name = "lbl_email";
-            this.lbl_email.Size = new System.Drawing.Size(77, 20);
+            this.lbl_email.Size = new System.Drawing.Size(102, 21);
             this.lbl_email.TabIndex = 23;
             this.lbl_email.Text = "E - Mail :";
             // 
             // lbl_city
             // 
             this.lbl_city.AutoSize = true;
-            this.lbl_city.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lbl_city.Location = new System.Drawing.Point(29, 200);
+            this.lbl_city.Font = new System.Drawing.Font("Castellar", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_city.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.lbl_city.Location = new System.Drawing.Point(23, 199);
             this.lbl_city.Name = "lbl_city";
-            this.lbl_city.Size = new System.Drawing.Size(48, 20);
+            this.lbl_city.Size = new System.Drawing.Size(66, 21);
             this.lbl_city.TabIndex = 21;
             this.lbl_city.Text = "City :";
             // 
             // lbl_country
             // 
             this.lbl_country.AutoSize = true;
-            this.lbl_country.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lbl_country.Location = new System.Drawing.Point(29, 230);
+            this.lbl_country.Font = new System.Drawing.Font("Castellar", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_country.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.lbl_country.Location = new System.Drawing.Point(23, 229);
             this.lbl_country.Name = "lbl_country";
-            this.lbl_country.Size = new System.Drawing.Size(77, 20);
+            this.lbl_country.Size = new System.Drawing.Size(117, 21);
             this.lbl_country.TabIndex = 19;
             this.lbl_country.Text = "Country :";
             // 
             // lbl_address
             // 
             this.lbl_address.AutoSize = true;
-            this.lbl_address.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lbl_address.Location = new System.Drawing.Point(29, 170);
+            this.lbl_address.Font = new System.Drawing.Font("Castellar", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_address.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.lbl_address.Location = new System.Drawing.Point(23, 169);
             this.lbl_address.Name = "lbl_address";
-            this.lbl_address.Size = new System.Drawing.Size(81, 20);
+            this.lbl_address.Size = new System.Drawing.Size(103, 21);
             this.lbl_address.TabIndex = 17;
             this.lbl_address.Text = "Address :";
             // 
             // lbl_phoneNumber
             // 
             this.lbl_phoneNumber.AutoSize = true;
-            this.lbl_phoneNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lbl_phoneNumber.Location = new System.Drawing.Point(29, 140);
+            this.lbl_phoneNumber.Font = new System.Drawing.Font("Castellar", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_phoneNumber.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.lbl_phoneNumber.Location = new System.Drawing.Point(23, 139);
             this.lbl_phoneNumber.Name = "lbl_phoneNumber";
-            this.lbl_phoneNumber.Size = new System.Drawing.Size(130, 20);
+            this.lbl_phoneNumber.Size = new System.Drawing.Size(174, 21);
             this.lbl_phoneNumber.TabIndex = 15;
             this.lbl_phoneNumber.Text = "Phone Number :";
             // 
             // lbl_nameSurname
             // 
             this.lbl_nameSurname.AutoSize = true;
-            this.lbl_nameSurname.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lbl_nameSurname.Location = new System.Drawing.Point(29, 110);
+            this.lbl_nameSurname.Font = new System.Drawing.Font("Castellar", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_nameSurname.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.lbl_nameSurname.Location = new System.Drawing.Point(23, 109);
             this.lbl_nameSurname.Name = "lbl_nameSurname";
-            this.lbl_nameSurname.Size = new System.Drawing.Size(146, 20);
+            this.lbl_nameSurname.Size = new System.Drawing.Size(192, 21);
             this.lbl_nameSurname.TabIndex = 13;
             this.lbl_nameSurname.Text = "Name - Surname :";
             // 
             // lbl_password
             // 
             this.lbl_password.AutoSize = true;
-            this.lbl_password.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lbl_password.Location = new System.Drawing.Point(29, 80);
+            this.lbl_password.Font = new System.Drawing.Font("Castellar", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_password.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.lbl_password.Location = new System.Drawing.Point(23, 79);
             this.lbl_password.Name = "lbl_password";
-            this.lbl_password.Size = new System.Drawing.Size(93, 20);
+            this.lbl_password.Size = new System.Drawing.Size(123, 21);
             this.lbl_password.TabIndex = 11;
             this.lbl_password.Text = "Password :";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.rb_minToMax);
+            this.groupBox2.Controls.Add(this.rb_maxToMin);
+            this.groupBox2.Font = new System.Drawing.Font("Castellar", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.groupBox2.Location = new System.Drawing.Point(524, 528);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(330, 82);
+            this.groupBox2.TabIndex = 31;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Order Type";
+            // 
+            // rb_minToMax
+            // 
+            this.rb_minToMax.AutoSize = true;
+            this.rb_minToMax.Location = new System.Drawing.Point(21, 32);
+            this.rb_minToMax.Name = "rb_minToMax";
+            this.rb_minToMax.Size = new System.Drawing.Size(133, 21);
+            this.rb_minToMax.TabIndex = 33;
+            this.rb_minToMax.TabStop = true;
+            this.rb_minToMax.Text = "Min To Max";
+            this.rb_minToMax.UseVisualStyleBackColor = true;
+            this.rb_minToMax.CheckedChanged += new System.EventHandler(this.rb_minToMax_CheckedChanged);
+            // 
+            // rb_maxToMin
+            // 
+            this.rb_maxToMin.AutoSize = true;
+            this.rb_maxToMin.Location = new System.Drawing.Point(182, 32);
+            this.rb_maxToMin.Name = "rb_maxToMin";
+            this.rb_maxToMin.Size = new System.Drawing.Size(133, 21);
+            this.rb_maxToMin.TabIndex = 32;
+            this.rb_maxToMin.TabStop = true;
+            this.rb_maxToMin.Text = "Max To Min";
+            this.rb_maxToMin.UseVisualStyleBackColor = true;
+            this.rb_maxToMin.CheckedChanged += new System.EventHandler(this.rb_maxToMin_CheckedChanged);
             // 
             // AdminPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(866, 621);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btn_DeleteUser);
             this.Controls.Add(this.btn_UpdateUser);
@@ -280,6 +354,8 @@ namespace PreLab1
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -307,5 +383,8 @@ namespace PreLab1
         private System.Windows.Forms.Label lbl_phoneNumber;
         private System.Windows.Forms.Label lbl_nameSurname;
         private System.Windows.Forms.Label lbl_password;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.RadioButton rb_maxToMin;
+        private System.Windows.Forms.RadioButton rb_minToMax;
     }
 }

@@ -85,6 +85,8 @@ namespace PreLab1
             txt_country.Text = "";
             txt_email.Text = "";
 
+            SQL.connectionUsers.Close();
+
             this.Hide();
             loginScreen.Show();
         }
@@ -94,5 +96,9 @@ namespace PreLab1
             Application.Exit();
         }
 
+        private void SignupScreen_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

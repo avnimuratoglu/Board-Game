@@ -42,20 +42,23 @@ namespace PreLab1
             // 
             // BtnLogin
             // 
+            this.BtnLogin.BackColor = System.Drawing.Color.AliceBlue;
             this.BtnLogin.Enabled = false;
-            this.BtnLogin.Location = new System.Drawing.Point(199, 279);
+            this.BtnLogin.Font = new System.Drawing.Font("Papyrus", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnLogin.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.BtnLogin.Location = new System.Drawing.Point(199, 298);
             this.BtnLogin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnLogin.Name = "BtnLogin";
             this.BtnLogin.Size = new System.Drawing.Size(157, 39);
             this.BtnLogin.TabIndex = 3;
             this.BtnLogin.Text = "Log In";
-            this.BtnLogin.UseVisualStyleBackColor = true;
+            this.BtnLogin.UseVisualStyleBackColor = false;
             this.BtnLogin.Click += new System.EventHandler(this.BtnLogin_Click);
             // 
             // txtUserName
             // 
             this.txtUserName.AcceptsTab = true;
-            this.txtUserName.Location = new System.Drawing.Point(199, 130);
+            this.txtUserName.Location = new System.Drawing.Point(267, 145);
             this.txtUserName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(157, 22);
@@ -65,7 +68,7 @@ namespace PreLab1
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(199, 180);
+            this.txtPassword.Location = new System.Drawing.Point(267, 184);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
@@ -76,25 +79,30 @@ namespace PreLab1
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(56, 135);
+            this.lblName.Font = new System.Drawing.Font("Papyrus", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblName.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.lblName.Location = new System.Drawing.Point(56, 143);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(126, 17);
+            this.lblName.Size = new System.Drawing.Size(178, 27);
             this.lblName.TabIndex = 3;
             this.lblName.Text = "User/Admin Name:";
             // 
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
-            this.lblPassword.Location = new System.Drawing.Point(109, 185);
+            this.lblPassword.Font = new System.Drawing.Font("Papyrus", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPassword.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.lblPassword.Location = new System.Drawing.Point(119, 182);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(73, 17);
+            this.lblPassword.Size = new System.Drawing.Size(94, 27);
             this.lblPassword.TabIndex = 4;
             this.lblPassword.Text = "Password:";
             // 
             // lbl_error
             // 
             this.lbl_error.AutoSize = true;
-            this.lbl_error.Location = new System.Drawing.Point(234, 403);
+            this.lbl_error.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.lbl_error.Location = new System.Drawing.Point(234, 430);
             this.lbl_error.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_error.Name = "lbl_error";
             this.lbl_error.Size = new System.Drawing.Size(0, 17);
@@ -103,7 +111,8 @@ namespace PreLab1
             // lbl_error2
             // 
             this.lbl_error2.AutoSize = true;
-            this.lbl_error2.Location = new System.Drawing.Point(149, 385);
+            this.lbl_error2.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.lbl_error2.Location = new System.Drawing.Point(149, 412);
             this.lbl_error2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_error2.Name = "lbl_error2";
             this.lbl_error2.Size = new System.Drawing.Size(0, 17);
@@ -111,21 +120,26 @@ namespace PreLab1
             // 
             // btnSıgnIn
             // 
-            this.btnSıgnIn.Location = new System.Drawing.Point(199, 337);
+            this.btnSıgnIn.BackColor = System.Drawing.Color.AliceBlue;
+            this.btnSıgnIn.Font = new System.Drawing.Font("Papyrus", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSıgnIn.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.btnSıgnIn.Location = new System.Drawing.Point(199, 356);
             this.btnSıgnIn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSıgnIn.Name = "btnSıgnIn";
             this.btnSıgnIn.Size = new System.Drawing.Size(157, 39);
             this.btnSıgnIn.TabIndex = 7;
             this.btnSıgnIn.Text = "Sıgn Up";
-            this.btnSıgnIn.UseVisualStyleBackColor = true;
+            this.btnSıgnIn.UseVisualStyleBackColor = false;
             this.btnSıgnIn.Click += new System.EventHandler(this.btnSıgnIn_Click);
             // 
             // chBox_password
             // 
             this.chBox_password.AutoSize = true;
-            this.chBox_password.Location = new System.Drawing.Point(199, 222);
+            this.chBox_password.Font = new System.Drawing.Font("Papyrus", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chBox_password.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.chBox_password.Location = new System.Drawing.Point(212, 235);
             this.chBox_password.Name = "chBox_password";
-            this.chBox_password.Size = new System.Drawing.Size(129, 21);
+            this.chBox_password.Size = new System.Drawing.Size(135, 26);
             this.chBox_password.TabIndex = 8;
             this.chBox_password.Text = "Show Password";
             this.chBox_password.UseVisualStyleBackColor = true;
@@ -135,7 +149,8 @@ namespace PreLab1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(565, 450);
+            this.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.ClientSize = new System.Drawing.Size(565, 499);
             this.Controls.Add(this.chBox_password);
             this.Controls.Add(this.btnSıgnIn);
             this.Controls.Add(this.lbl_error2);

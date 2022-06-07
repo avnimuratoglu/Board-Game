@@ -58,18 +58,55 @@ namespace PreLab1
             //SQL x = new SQL();
 
             //veritabani uzerinde sorgulama, ekleme, guncelleme ve silme islemleri icin
-            SqlCommand commandList = new SqlCommand("Select Username, NameSurname, PhoneNumber, Address, City, Country, eMail from Users_Table", SQL.connectionUsers);
+            //SqlCommand commandList = new SqlCommand("Select Username, NameSurname, PhoneNumber, Address, City, Country, eMail, Score from Users_Table", SQL.connectionUsers);
 
+            //if (order1.Checked)
+            //{
+            //    //veritabani uzerinde sorgulama, ekleme, guncelleme ve silme islemleri icin
+            //    SqlCommand commandList = new SqlCommand("Select Username, NameSurname, PhoneNumber, Address, City, Country, eMail, Score from Users_Table order by Score desc", SQL.connectionUsers);
+
+            //    SQL.CheckConnection(SQL.connectionUsers); // kontrol
+
+            //    SqlDataAdapter dataAdapter = new SqlDataAdapter(commandList);
+
+            //    DataTable dataTable = new DataTable();
+
+            //    dataAdapter.Fill(dataTable);
+
+            //    dataGridView1.DataSource = dataTable;
+            //}
+            //if(order2.Checked)
+            //{
+            //    if (order1.Checked)
+            //    {
+            //        //veritabani uzerinde sorgulama, ekleme, guncelleme ve silme islemleri icin
+            //        SqlCommand commandList = new SqlCommand("Select Username, NameSurname, PhoneNumber, Address, City, Country, eMail, Score from Users_Table order by Score asc", SQL.connectionUsers);
+
+            //        SQL.CheckConnection(SQL.connectionUsers); // kontrol
+
+            //        SqlDataAdapter dataAdapter = new SqlDataAdapter(commandList);
+
+            //        DataTable dataTable = new DataTable();
+
+            //        dataAdapter.Fill(dataTable);
+
+            //        dataGridView1.DataSource = dataTable;
+            //    }
+            //}
+            //else
+            //{
+            SqlCommand commandList = new SqlCommand("Select Username, NameSurname, PhoneNumber, Address, City, Country, eMail, Score from Users_Table", SQL.connectionUsers);
             SQL.CheckConnection(SQL.connectionUsers); // kontrol
-
+            
             SqlDataAdapter dataAdapter = new SqlDataAdapter(commandList);
 
             DataTable dataTable = new DataTable();
-
             dataAdapter.Fill(dataTable);
 
             dataGridView1.DataSource = dataTable;
+            SQL.connectionUsers.Close();
 
+            //}
         }
 
         private void AdminPanel_Load(object sender, EventArgs e)
@@ -130,6 +167,8 @@ namespace PreLab1
             txt_country.Text = "";
             txt_email.Text = "";
 
+            SQL.connectionUsers.Close();
+
             LoadAndRefreshPage();
         }
 
@@ -188,6 +227,8 @@ namespace PreLab1
             txt_country.Text = "";
             txt_email.Text = "";
 
+            SQL.connectionUsers.Close();
+
             LoadAndRefreshPage(); // ekledigimiz degerlerin sayfaya yansimasi icin
         }
 
@@ -219,6 +260,8 @@ namespace PreLab1
             txt_country.Text = "";
             txt_email.Text = "";
 
+            SQL.connectionUsers.Close();
+
             LoadAndRefreshPage();
         }
 
@@ -233,6 +276,45 @@ namespace PreLab1
             AdminScreen adminScreen = new AdminScreen();
             adminScreen.Show();
         }
+
+        private void rb_minToMax_CheckedChanged(object sender, EventArgs e)
+        {
+            //veritabani uzerinde sorgulama, ekleme, guncelleme ve silme islemleri icin
+            SqlCommand commandList = new SqlCommand("Select Username, NameSurname, PhoneNumber, Address, City, Country, eMail, Score from Users_Table order by Score asc", SQL.connectionUsers);
+
+            SQL.CheckConnection(SQL.connectionUsers); // kontrol
+
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(commandList);
+
+            DataTable dataTable = new DataTable();
+
+            dataAdapter.Fill(dataTable);
+
+            dataGridView1.DataSource = dataTable;
+
+            SQL.connectionUsers.Close();
+        }
+
+        private void rb_maxToMin_CheckedChanged(object sender, EventArgs e)
+        {
+            //veritabani uzerinde sorgulama, ekleme, guncelleme ve silme islemleri icin
+            SqlCommand commandList = new SqlCommand("Select Username, NameSurname, PhoneNumber, Address, City, Country, eMail, Score from Users_Table order by Score desc", SQL.connectionUsers);
+
+            SQL.CheckConnection(SQL.connectionUsers); // kontrol
+
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(commandList);
+
+            DataTable dataTable = new DataTable();
+
+            dataAdapter.Fill(dataTable);
+
+            dataGridView1.DataSource = dataTable;
+
+            SQL.connectionUsers.Close();
+
+        }
+
+
 
         //private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         //{

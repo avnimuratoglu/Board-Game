@@ -36,28 +36,34 @@ namespace PreLab1
             // lbl_info
             // 
             this.lbl_info.AutoSize = true;
-            this.lbl_info.Location = new System.Drawing.Point(79, 72);
+            this.lbl_info.Font = new System.Drawing.Font("Papyrus", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_info.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.lbl_info.Location = new System.Drawing.Point(61, 169);
             this.lbl_info.Name = "lbl_info";
-            this.lbl_info.Size = new System.Drawing.Size(523, 51);
+            this.lbl_info.Size = new System.Drawing.Size(688, 124);
             this.lbl_info.TabIndex = 0;
             this.lbl_info.Text = "- Oyunda kolay, orta, zor ve custom olmak üzere 3 zorluk derecesi bulunmaktadır.\r" +
-    "\n- Oyunda 3 renk ve 3 şekil seçeneği bulunmaktadır.\r\n- Aynı şekil ve rengi yan y" +
-    "ana getirerek puan toplanmaktadır.\r\n";
+    "\n- Oyunda 3 renk ve 3 sekil secenegi bulunmaktadır.\r\n- Aynı sekil ve rengi yan y" +
+    "ana getirerek puan toplanmaktadır.\r\n\r\n";
             // 
             // btn_About
             // 
-            this.btn_About.Location = new System.Drawing.Point(639, 365);
+            this.btn_About.BackColor = System.Drawing.Color.AliceBlue;
+            this.btn_About.Font = new System.Drawing.Font("Papyrus", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_About.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.btn_About.Location = new System.Drawing.Point(655, 379);
             this.btn_About.Name = "btn_About";
             this.btn_About.Size = new System.Drawing.Size(133, 47);
             this.btn_About.TabIndex = 1;
             this.btn_About.Text = "About Us";
-            this.btn_About.UseVisualStyleBackColor = true;
+            this.btn_About.UseVisualStyleBackColor = false;
             this.btn_About.Click += new System.EventHandler(this.btn_About_Click);
             // 
             // HelpScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btn_About);
             this.Controls.Add(this.lbl_info);

@@ -16,5 +16,6 @@ namespace PreLab1
         {
             InitializeComponent();
         }
+
     }
 }

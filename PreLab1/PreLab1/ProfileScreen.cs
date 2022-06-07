@@ -11,6 +11,8 @@ using System.Xml;
 using System.Xml.Linq;
 using System.Security.Cryptography;
 using System.IO;
+using System.Data.SqlClient;
+using PreLab1.SqlVariables;
 
 
 namespace PreLab1
@@ -38,106 +40,103 @@ namespace PreLab1
         }
         public void LoadFile()
         {
-            XmlDocument xDoc = new XmlDocument();
-            DataSet ds = new DataSet();
-            XmlReader xmlFile;
-            xmlFile = XmlReader.Create(@"users.xml", new XmlReaderSettings());
-            ds.ReadXml(xmlFile);
+            //    XmlDocument xDoc = new XmlDocument();
+            //    DataSet ds = new DataSet();
+            //    XmlReader xmlFile;
+            //    xmlFile = XmlReader.Create(@"users.xml", new XmlReaderSettings());
+            //    ds.ReadXml(xmlFile);
 
-            xmlFile.Close();
+            //    xmlFile.Close();
 
+            SQL.connectionUsers.Close();
+
+            SqlCommand commandList = new SqlCommand("Select Username, NameSurname, PhoneNumber, Address, City, Country, eMail, Score from Users_Table", SQL.connectionUsers);
+            SQL.CheckConnection(SQL.connectionUsers); // kontrol
         }
+        
         private void ProfileScreen_Load(object sender, EventArgs e)
         {
-            XmlDocument xDoc = new XmlDocument();
-            xDoc.Load(@"users.xml");
+            SQL.connectionUsers.Close();
 
-            FileStream fs = new FileStream(@"Entry.txt", FileMode.Open, FileAccess.ReadWrite);
-            StreamReader entry = new StreamReader(fs);
-            string UserName = entry.ReadLine();
-            entry.Close();
+            txt_UserName.Text = LoginScreen.UserName;
+            SQL.CheckConnection(SQL.connectionUsers);
+            SqlCommand commandShow = new SqlCommand("Select * from Users_Table where UserName like '" + txt_UserName.Text + "'", SQL.connectionUsers);
 
-            foreach (XmlNode node in xDoc.SelectNodes("//User"))
+            SqlDataReader read = commandShow.ExecuteReader();
+
+            while(read.Read())
             {
-                if( node["UserName"].InnerText == UserName )
-                {
-                    txt_UserName.Text = node["UserName"].InnerText;
-                    txt_password.Text = "";
-                    txt_nameSurname.Text = node["NameSurname"].InnerText;
-                    txt_phoneNumber.Text = node["PhoneNumber"].InnerText;
-                    txt_address.Text = node["Address"].InnerText;
-                    txt_city.Text = node["City"].InnerText;
-                    txt_country.Text = node["Country"].InnerText;
-                    txt_email.Text = node["E-Mail"].InnerText;
-                }
+                txt_password.Text = read["Password"].ToString();
+                txt_nameSurname.Text = read["NameSurname"].ToString();
+                txt_phoneNumber.Text = read["PhoneNumber"].ToString();
+                txt_address.Text = read["Address"].ToString();
+                txt_city.Text = read["City"].ToString();
+                txt_country.Text = read["Country"].ToString();
+                txt_email.Text = read["eMail"].ToString();
             }
+
+            SQL.connectionUsers.Close();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            XDocument xDoc = XDocument.Load(@"users.xml");
-            XElement node = xDoc.Element("Users").Elements("User").FirstOrDefault(x => x.Element("UserName").Value == txt_UserName.Text);
+            SQL.CheckConnection(SQL.connectionUsers);
+            SqlCommand commandUpdate = new SqlCommand("UPDATE Users_Table SET Password=@Password, NameSurname=@NameSurname, PhoneNumber=@PhoneNumber, Address=@Address, City=@City, Country=@Country, eMail=@eMail where UserName=@Username", SQL.connectionUsers);
 
-
-            if(Encrypt(txtb_password.Text) == node.Element("Password").Value)
+            if (Encrypt(txtb_password.Text) == Encrypt(LoginScreen.Password))
             {
-                if (node != null)
-                {
-                    node.SetElementValue("Password", Encrypt(txt_password.Text));
-                    node.SetElementValue("NameSurname", txt_nameSurname.Text);
-                    node.SetElementValue("PhoneNumber", txt_phoneNumber.Text);
-                    node.SetElementValue("Address", txt_address.Text);
-                    node.SetElementValue("City", txt_city.Text);
-                    node.SetElementValue("Country", txt_country.Text);
-                    node.SetElementValue("E-Mail", txt_email.Text);
-                }
 
-                lbl_Info.Text = "UPDATE SUCCESSFUL !!!";
-                txt_password.Text = "";
-                xDoc.Save(@"users.xml");
-                LoadFile();
+                commandUpdate.Parameters.AddWithValue("@UserName", txt_UserName.Text);
+                commandUpdate.Parameters.AddWithValue("@Password", Encrypt(txt_password.Text));
+                commandUpdate.Parameters.AddWithValue("@NameSurname", txt_nameSurname.Text);
+                commandUpdate.Parameters.AddWithValue("@PhoneNumber", txt_phoneNumber.Text);
+                commandUpdate.Parameters.AddWithValue("@Address", txt_address.Text);
+                commandUpdate.Parameters.AddWithValue("@City", txt_city.Text);
+                commandUpdate.Parameters.AddWithValue("@Country", txt_country.Text);
+                commandUpdate.Parameters.AddWithValue("@eMail", txt_email.Text);
+
+                commandUpdate.ExecuteNonQuery();
+
             }
             else
-            {
-                txt_password.Text = "";
-                txtb_password.Text = "";
-            }
+                MessageBox.Show("You entered wrong password!", "ERROR", MessageBoxButtons.OK);
+
+
+            txt_UserName.Text = "";
+            txt_password.Text = "";
+            txt_nameSurname.Text = "";
+            txt_phoneNumber.Text = "";
+            txt_address.Text = "";
+            txt_city.Text = "";
+            txt_country.Text = "";
+            txt_email.Text = "";
         }
 
-        private void btnDelete_Click_1(object sender, EventArgs e)
+        private void btnDelete_Click(object sender, EventArgs e)
         {
-            FileStream fs = new FileStream(@"Entry.txt", FileMode.Open, FileAccess.ReadWrite);
-            StreamWriter entry = new StreamWriter(fs);
+            SQL.connectionUsers.Close();
 
-            LoginScreen loginScreen = new LoginScreen();
+            var selectedUSerName = txt_UserName.Text;
+            SqlCommand commandDelete = new SqlCommand("Delete from Users_Table where UserName = @vUserName", SQL.connectionUsers);
+            SQL.CheckConnection(SQL.connectionUsers);
+            commandDelete.Parameters.AddWithValue("@vUserName", selectedUSerName);
 
-            XDocument xDoc = XDocument.Load(@"users.xml");
-            XElement node = xDoc.Element("Users").Elements("User").FirstOrDefault(x => x.Element("UserName").Value == txt_UserName.Text);
+            commandDelete.ExecuteNonQuery();
 
-            if (Encrypt(txtb_password.Text) == node.Element("Password").Value)
-            {
-                xDoc.Root.Elements().Where(x => x.Element("UserName").Value == txt_UserName.Text).Remove();
-                lbl_Info.Text = "DELETION SUCCESSFUL !!!";
-                txt_password.Text = "";
-                txt_UserName.Text = "";
-                xDoc.Save(@"users.xml");
-                LoadFile();
+            txt_UserName.Text = "";
+            txt_password.Text = "";
+            txt_nameSurname.Text = "";
+            txt_phoneNumber.Text = "";
+            txt_address.Text = "";
+            txt_city.Text = "";
+            txt_country.Text = "";
+            txt_email.Text = "";
 
-                entry.WriteLine("");
-                entry.Close();
-                this.Close();
-                loginScreen.Show();
-
-            }
-            else
-            {
-                txt_password.Text = "";
-                txtb_password.Text = "";
-            }
         }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
+
             this.Close();
             MenuScreen menuScreen = new MenuScreen();
             menuScreen.Show();
