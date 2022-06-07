@@ -27,6 +27,7 @@ namespace PreLab1
         }
 
         public static string UserName;
+        public static string Password;
         static string Encrypt(string value) // string to SHA256
         {
             StringBuilder builder = new StringBuilder();
@@ -51,13 +52,13 @@ namespace PreLab1
 
         private void BtnLogin_Click(object sender, EventArgs e)
         {
-            //XmlDocument xDoc = new XmlDocument();
-            //xDoc.Load(@"users.xml");
+            //    XmlDocument xDoc = new XmlDocument();
+            //    xDoc.Load(@"users.xml");
 
-            //FileStream fs = new FileStream(@"Entry.txt", FileMode.Open, FileAccess.Write);
-            //StreamWriter entry = new StreamWriter(fs);
-            //entry.WriteLine(txtUserName.Text);
-            //entry.Close();
+            FileStream fs = new FileStream(@"Entry.txt", FileMode.Open, FileAccess.Write);
+            StreamWriter entry = new StreamWriter(fs);
+            entry.WriteLine(txtUserName.Text);
+            entry.Close();
 
             //foreach (XmlNode node in xDoc.SelectNodes("//User"))
             //{
@@ -65,24 +66,38 @@ namespace PreLab1
             //    string password = node.SelectSingleNode("Password").InnerText;
             //}
 
-            SqlCommand commandLogin = new SqlCommand("Select password from Users_Table where Username=@userName", SQL.connectionUsers);
+            SqlCommand commandLogin = new SqlCommand("Select Password from Users_Table where Username=@userName", SQL.connectionUsers);
             SQL.CheckConnection(SQL.connectionUsers);
             commandLogin.Parameters.AddWithValue("@userName", txtUserName.Text);
 
-            this.Hide();
+            SqlDataReader read = commandLogin.ExecuteReader();
+            read.Read();
 
-            if (txtUserName.Text == "admin")
+            var password = read["Password"].ToString();
+
+            if (password == Encrypt(txtPassword.Text))
             {
-                AdminScreen adminScreen = new AdminScreen();
-                adminScreen.Show();
+                this.Hide();
+
+                if (txtUserName.Text == "admin")
+                {
+                    AdminScreen adminScreen = new AdminScreen();
+                    adminScreen.Show();
+                }
+                else
+                {
+                    MenuScreen menuScreen = new MenuScreen();
+                    menuScreen.Show();
+                }
+
+                UserName = txtUserName.Text;
+                Password = txtPassword.Text;
             }
             else
             {
-                MenuScreen menuScreen = new MenuScreen();
-                menuScreen.Show();
+                MessageBox.Show("You entered wrong name or password !!!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtPassword.Text = "";
             }
-
-            UserName = txtUserName.Text;
         }
 
         private void txtUserName_KeyPress(object sender, KeyPressEventArgs e)

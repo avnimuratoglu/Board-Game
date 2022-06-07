@@ -250,6 +250,8 @@ namespace PreLab1
             cBx_Blue.Checked = SettingsUser.Default.User_colorBlue;
             cBx_Red.Checked = SettingsUser.Default.User_colorRed;
         }
+
+       
         //else
         //{  //Check Boxes
         //    cBx_Square.Checked = SettingsAdmin.Default.Admin_CheckSquare;

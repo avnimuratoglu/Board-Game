@@ -70,5 +70,12 @@ namespace PreLab1
             HelpScreen helpScreen = new HelpScreen();
             helpScreen.ShowDialog();
         }
+
+        private void btn_Multiplayer_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ControlScreen controlScreen = new ControlScreen();
+            controlScreen.Show();
+        }
     }
 }
